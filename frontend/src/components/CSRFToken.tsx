@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const CSRFToken: React.FC = () => {
-    const [csrftoken, setCsrftoken] = useState<string | null>(null);
+    const [csrftoken, setCsrftoken] = useState<ReturnType<typeof getCookie>>('');
 
     function getCookie(name: string) {
         let cookieValue = null;
@@ -23,7 +23,7 @@ const CSRFToken: React.FC = () => {
 
     async function fetchToken () {
         try {
-            return await axios.get(`${process.env.REACT_APP_API_URL}/accounts/csrf_token/`);
+            return await axios.get(`${process.env.REACT_APP_API_URL}/accounts/csrf_cookie/`);
         } catch (err) {
             console.log(err);
         }
@@ -35,7 +35,7 @@ const CSRFToken: React.FC = () => {
     }, [csrftoken]);
 
     return (
-        <input type="hidden" name='csrfmiddlewaretoken' value={csrftoken ? csrftoken : ''} />
+        <input type="hidden" name='csrfmiddlewaretoken' value={`${csrftoken}`} />
     );
 }
 

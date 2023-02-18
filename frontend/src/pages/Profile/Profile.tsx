@@ -8,12 +8,9 @@ import ProfileAddressForm from "./ProfileComponents/ProfileAddressForm";
 import ProfileResponsibleNavbar from "./ProfileComponents/ProfileResponsibleNavbar";
 
 
-interface ProfileProps extends React.PropsWithChildren {
 
-}
-
-const Profile: React.FC<ProfileProps> = () => {
-
+const Profile: React.FC = () => {
+    
     return (
         <div className="profile">
             <ProfileHeader> 

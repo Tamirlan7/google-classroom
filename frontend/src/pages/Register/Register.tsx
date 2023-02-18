@@ -5,7 +5,7 @@ import { IRegister } from '../../types/types'
 import CSRFToken from "../../components/CSRFToken";
 import { connect } from "react-redux";
 import { register } from "../../actions/auth/actions";
-import { UseTypedSelector } from "../../hooks/redux";
+import { useTypedSelector } from "../../hooks/redux";
 
 interface RegisterProps extends React.PropsWithChildren {
     register: (username: string, password: string, re_password: string) => void
@@ -19,7 +19,7 @@ const Register: React.FC<RegisterProps> = ({ register }) => {
         re_password: '',
     })
 
-    const isAuthenticated = UseTypedSelector(state => state.auth.isAuthenticated);
+    const isAuthenticated = useTypedSelector(state => state.auth.isAuthenticated);
 
     const {username, password, re_password} = registerData;
     const [remember, setRemember] = useState<boolean>(false);

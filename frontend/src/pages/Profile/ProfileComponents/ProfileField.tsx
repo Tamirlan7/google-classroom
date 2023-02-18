@@ -1,24 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRight } from '../../../assets/icons/arrow-right.svg';
 
 
 interface ProfileFieldProps extends React.PropsWithChildren {
     fieldName: string
-    conditionName: string;
+    value: string | undefined
+    link: string
 }
 
 
-const ProfileField: React.FC<ProfileFieldProps> = ({ fieldName, conditionName }) => {
+const ProfileField: React.FC<ProfileFieldProps> = ({ fieldName, value, link }) => {
+    const navigate = useNavigate();
 
     return (
-        <div className="profile-input">
+        <div className="profile-input" onClick={() => navigate(link)}>
             <div className="profile-field__name">
                 <small>{fieldName}</small>
                 <p className="responsible-value">Не выбран</p>
             </div>
             <div className="profile-field__value">
-                <p>Не выбран</p>
-                {/* <p>{conditionName ? conditionName : '{inputName} не определена'}</p> */}
+                <p>{value?.trim() ? value : 'не выбран'}</p>
                 <span className="arrow__icon-block">
                     <ArrowRight />
                 </span>

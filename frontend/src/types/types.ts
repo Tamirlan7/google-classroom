@@ -11,5 +11,20 @@ export interface IRegister {
 
 export interface IProfileField {
     fieldName: string
-    conditionName: string
+    value: string | undefined
+    link: string
 }
+
+export interface IProfile {
+    name?: string
+    surname?: string
+    nickname?: string
+    birthday?: string
+    phone?: string
+    email?: string
+    avatar?: string | File | null
+    gender?: boolean | null
+    personal_address?: string
+    business_address?: string
+    other_addresses?: string
+} 

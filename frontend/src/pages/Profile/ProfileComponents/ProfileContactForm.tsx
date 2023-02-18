@@ -2,12 +2,15 @@ import React from "react";
 import ProfileField from "./ProfileField";
 import emailImg from '../../../assets/images/email.png'
 import { IProfileField } from "../../../types/types";
+import { useTypedSelector } from "../../../hooks/redux";
 
 const ProfileContactForm: React.FC = () => {
 
+    const {email, phone} = useTypedSelector(state => state.profile.profile)
+
     const profileFields: IProfileField[] = [
-        {fieldName: 'Телефон', conditionName: 'phone'},
-        {fieldName: 'Электронная почта', conditionName: 'email'},
+        {fieldName: 'Электронная почта', value: email, link: 'email'},
+        {fieldName: 'Телефон', value: phone, link: 'phone'},
     ]
 
     return (
@@ -17,7 +20,7 @@ const ProfileContactForm: React.FC = () => {
             </div>
             <form className="profile-form profile-contact__form">
                 {profileFields.map((field, index) => 
-                <ProfileField fieldName={field.fieldName} conditionName={field.conditionName} key={index} />)}
+                <ProfileField link={field.link} fieldName={field.fieldName} value={field.value} key={index} />)}
             </form>
             <div className="profile-contact__footer">
                 <h3>Другие варианты</h3>

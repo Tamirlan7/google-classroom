@@ -1,3 +1,4 @@
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .serializers import ProfileSerializer
 from .models import Profile
@@ -25,17 +26,26 @@ class GetProfile(APIView):
             profile = Profile.objects.get(user=request.user)
             data = request.data
 
+            if not data:
+                return Response({'error': 'datas that need to be changed were not provided'})
+
             if 'name' in data:
                 profile.name = data['name']
+
+            if 'surname' in data:
+                profile.surname = data['surname']
+
+            if 'nickname' in data:
+                profile.nickname = data['nickname']
+
+            if 'birthday' in data:
+                profile.birthday = data['birthday']
 
             if 'phone' in data:
                 profile.phone = data['phone']
 
             if 'email' in data:
                 profile.email = data['email']
-
-            if 'phone' in data:
-                profile.phone = data['phone']
 
             if 'avatar' in data:
                 profile.avatar = data['avatar']
@@ -51,9 +61,6 @@ class GetProfile(APIView):
 
             if 'other_addresses' in data:
                 profile.other_addresses = data['other_addresses']
-
-            if not data:
-                return Response({'success': 'nothing changed'})
 
             profile.save()
             profile = ProfileSerializer(profile, many=False)

@@ -1,6 +1,7 @@
 import React from "react";
 import ProfileField from "./ProfileField";
 import { IProfileField } from "../../../types/types";
+import { useTypedSelector } from "../../../hooks/redux";
 
 
 interface ProfileAddressFormProps extends React.PropsWithChildren {
@@ -9,18 +10,23 @@ interface ProfileAddressFormProps extends React.PropsWithChildren {
 
 const ProfileAddressForm: React.FC<ProfileAddressFormProps> = () => {
 
+    const {personal_address, business_address, other_addresses} = useTypedSelector(state => state.profile.profile)
+
     const profileFields: IProfileField[] = [
         {
             fieldName: 'Личный',
-            conditionName: 'personalAddress'
+            value: personal_address,
+            link: 'personal-address'
         },
         {
             fieldName: 'Рабочий',
-            conditionName: 'businessAddress'
+            value: business_address,
+            link: 'business-address'
         },
         {
             fieldName: 'Другие адреса',
-            conditionName: 'otherAddresses'
+            value: other_addresses,
+            link: 'other-addresses'
         },
     ]
 
@@ -34,7 +40,7 @@ const ProfileAddressForm: React.FC<ProfileAddressFormProps> = () => {
             </div>
             <form className="profile-form profile-address__info">
                 {profileFields.map((field, index) => 
-                <ProfileField fieldName={field.fieldName} conditionName={field.conditionName} key={index} />)}
+                <ProfileField link={field.link} fieldName={field.fieldName} value={field.value} key={index} />)}
             </form>
         </div>
     );

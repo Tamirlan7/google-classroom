@@ -6,6 +6,7 @@
     align-items: center;
     background-color: rgba(224, 223, 227, 0.838);
     padding: 20px;
+    overflow: hidden;
 }
 
 .inner__login-page {

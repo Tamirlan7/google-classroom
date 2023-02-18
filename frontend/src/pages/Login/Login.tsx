@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../actions/auth/actions";
 import CSRFToken from "../../components/CSRFToken";
-import { UseTypedSelector } from "../../hooks/redux";
+import { useTypedSelector } from "../../hooks/redux";
 import { ILogin } from "../../types/types";
 import './Login.css';
 
@@ -19,7 +19,7 @@ const Login: React.FC<LoginProps> = ({ login }) => {
         password: '',
     })
 
-    const isAuthenticated = UseTypedSelector(state => state.auth.isAuthenticated); 
+    const isAuthenticated = useTypedSelector(state => state.auth.isAuthenticated); 
 
     const {username, password} = loginData;
     const [remember, setRemember] = useState<boolean>(false);

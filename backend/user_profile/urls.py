@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.GetProfile.as_view())
+    path('api/', views.GetProfile.as_view())
 ]

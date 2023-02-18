@@ -1,0 +1,704 @@
+/* PROFILE FORM HEADER */
+
+.field-header {
+    border-bottom: 1px solid #dadce0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.inner__field-title > button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.field-title {
+    display: flex;
+    justify-content: center;
+}
+
+.inner__field-title {
+    display: flex;
+    align-items: center;
+    width: 690px;
+}
+
+.inner__field-title > button {
+    box-sizing: content-box;
+    padding: 5px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    transition: all .2s ease;
+}
+
+.inner__field-title > button:hover {
+    background: rgb(113, 121, 118, .2);
+}
+
+.inner__field-title > button > svg {
+    width: 100%;
+    height: 100%;
+}
+
+.inner__field-title > h1 {
+    font-weight: 500;
+    margin-left: 20px;
+    transition: .2s ease;
+}
+
+.inner__field-title-scroll > h1 {
+    font-size: 23px;
+}
+
+/* PROFILE FORM CONTENT */
+
+.field-page__content {
+    padding: 150px 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.field-page__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+
+.field-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    max-width: 660px;
+}
+
+.field-form-edit-icon > figure {
+    padding: 5px 8px;
+    box-sizing: content-box;
+    border-radius: 50%;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.field-form-edit-icon > figure:hover {
+    background: rgb(113, 121, 118, .2);
+}
+
+/* FIELD INPUTS */
+
+.field-form-input {
+    display: flex;
+    padding: 16px 0;
+}
+
+.field-form-edit-icon {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* FIELD INFO */
+
+.field-form__info {
+    padding-top: 20px;
+}
+
+.field-form__info > h3 {
+    padding-bottom: 10px;
+}
+
+.field-form__info-text {
+    display: flex;
+    position: relative;
+}
+
+.field-form__info-text > figure {
+    position: absolute;
+    top: 0;
+}
+
+.field-form__info-text > p {
+    padding-left: 40px;
+}
+
+.field-form__info-text > p > span {
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+}
+
+.field-form__info-text {
+    max-width: 400px;
+}
+
+/* PROFILE BIRTHDAY FORM */
+
+.inner-field__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.inner-field-padding {
+    padding-right: 115px;
+}
+
+.privacy-info {
+    max-width: 552px;
+    padding-bottom: 25px;
+}
+
+/* PROFILE BIRTHDAY-DATE */
+
+.field-date {
+    max-width: 448px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.field-date > div:not(:last-child) {
+    margin-right: 10px;
+}
+
+.privacy-info > p > span, 
+.field-save-block > p > span {
+    color:rgb(26, 115, 232);
+    cursor: pointer;
+}
+
+.edit-nickname__privacy-block{
+    padding: 10px;
+}
+
+.privacy-block > p > span {
+    color:rgb(26, 115, 232);
+    cursor: pointer;
+}
+
+.inner-field__birthday-form {
+    max-width: 448px;
+}
+
+.field-save-block {
+    padding-right: 45px;
+}
+
+/* DAY -- INPUT */
+
+.year-block, 
+.month-block,
+.day-block {
+    position: relative;
+}
+
+.day-input {
+    max-width: 80px;
+    height: 56px;
+}
+
+.year-input {
+    max-width: 112px;
+    height: 56px;
+}
+
+.day-input:hover, .year-input:hover, .month-select {
+    border: 1px solid #000;
+}
+
+.year-input:not(:placeholder-shown) + .year-label,
+.day-input:not(:placeholder-shown) + .day-label {
+    color: #626364;
+    top: 0;
+    left: 10px;
+    font-size: 14px;
+} 
+
+.day-input:hover + .day-label,
+.year-input:hover + .year-label,
+.month-select:hover + .month-label {
+    color: #000
+}
+
+.day-input, .year-input {
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #626364;
+    font-size: 16px;
+    padding: 0 12px;
+    position: relative;
+    transition: all .3s ease;
+}
+
+
+.day-input:focus, .year-input:focus {
+    border: 1px solid rgb(26, 115, 232);
+}
+
+.day-label, .year-label {
+    position: absolute;
+    font-size: 16px;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #626364;
+    transition: all .2s ease;
+}
+
+.day-input:focus + .day-label,
+.year-input:focus + .year-label {
+    top: 0;
+    left: 10px;
+    color: rgb(26, 115, 232);
+    font-size: 14px;
+}
+
+.day-input::placeholder,
+.year-input::placeholder {
+    color: transparent
+}
+
+.day-input:focus::placeholder,
+.year-input:focus::placeholder {
+    color: #626364;
+}
+
+.day-label > span,
+.year-label > span {
+    padding: 5px;
+    border-radius: 100%;
+    background: rgb(255, 255, 255);
+}
+
+/* MONTH -- SELECT */
+
+.month-select {
+    width: 176px;
+    height: 56px;
+    border-radius: 5px;
+    border: 1px solid #626364;
+    font-size: 16px;
+    padding: 0 12px;
+    position: relative;
+    transition: all .3s ease;
+    outline: none;
+}
+
+.month-label {
+    position: absolute;
+    font-size: 16px;
+    top: 0;
+    left: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #626364;
+    transition: all .2s ease;
+}
+
+.month-label > span {
+    padding: 5px;
+    border-radius: 100%;
+    background: rgb(255, 255, 255);
+}
+
+.month-select:focus {
+    border: 1px solid rgb(26, 115, 232);
+}
+
+.month-select:focus + .month-label {
+    color: rgb(26, 115, 232);
+}
+
+/* PROFILE GENDER FORM */
+
+.field__gender-form {
+    max-width: 624px;
+}
+
+.genders {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gender {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.gender > input {
+    margin: 0 15px;
+    width: 20px;
+    height: 20px;
+}
+
+
+.field-privacy-block {
+    padding: 10px 0;
+}
+
+.field-privacy-block > h3 {
+    padding-bottom: 15px;
+    font-size: 17px;
+}
+
+.field-privacy-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.field-privacy-buttons > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dadce0;
+    background: transparent;
+    padding: 5px 60px;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.field-privacy-buttons > button:hover {
+    background: rgba(177, 205, 239, 0.3);
+    border: 1px solid transparent;
+}
+
+.field-privacy-buttons > button:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.field-privacy-buttons > button:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+button.button-selected {
+    border: 1px solid rgba(142, 183, 236, 0.7);
+    background: rgba(142, 183, 236, 0.3);
+}
+
+.field-privacy-buttons > button > small {
+    color: rgb(26, 115, 232);
+    font-size: 13px;
+}
+
+.field-privacy-buttons > button > figure {
+    margin-right: 10px;
+}
+
+.field-privacy-info {
+    max-width: 400px;
+}
+
+.field-privacy-info > p > span {
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+}
+
+/* PROFILE PHONE FORM */
+
+.inner-field-phone__content {
+    max-width: 660px;
+    padding-right: 115px;
+}
+
+.field-phone-content {
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.field-phone-content:hover {
+    background: rgba(215, 213, 213, 0.3);
+}
+
+.privacy-text {
+    font-size: 17px;
+}
+
+.flag-block {
+    width: 24px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.flag-block > img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+
+.field-value {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.phone-info {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.phone-info > span {
+    align-self: flex-start;
+    padding-right: 10px;
+}
+
+/* PROFILE PERSONAL ADDRESS */
+
+.inner-field-personal__adress__content {
+    padding-right: 115px;
+}
+
+.personal-address__field-form, .move-input__field-form {
+    max-width: 660px;
+}
+
+.move-input__field-form {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.move-input {
+    padding: 12px 10px;
+    width: 100%;
+    outline: 0;
+    border-radius: 5px;
+    border: 2px solid #dadce0;
+    background-color: transparent;
+    transition: all .1s;
+    font-size: 16px;
+    position: relative;
+}
+
+.move-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: all .1s;
+    color: rgb(113, 121, 118);
+    pointer-events: none;
+}
+
+.move-input:focus {
+    border: 2px solid rgb(26, 115, 232);
+}
+
+.move-input:not(:placeholder-shown)
++ .move-label {
+    top: 9px;
+    left: 20px;
+    color: rgb(26, 115, 232);
+}
+
+.move-input:not(:placeholder-shown) 
++ .move-label {
+    color: rgb(113, 121, 118);
+}
+
+.move-input:focus + .move-label {
+    top: 9px;
+    left: 20px;
+    color: rgb(26, 115, 232);
+}
+
+.move-label > span {
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.submit-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    line-height: 23px;
+    letter-spacing: 1.1px;
+    background: #dadce0;
+}
+
+.cancel-button {
+    background: transparent;
+    color: rgb(26, 115, 232);
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    line-height: 23px;
+    letter-spacing: 1.1px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.submit-button-active {
+    background: rgb(26, 115, 232);
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.privacy-info > p {
+    font-size: 16px;
+}
+
+
+/* NAME EDIT */
+
+.edit-name__privacy-block  {
+    padding: 10px;
+}
+
+.edit-name__privacy-block > p > span {
+    color: rgb(26, 115, 232);
+    cursor: pointer;
+}
+
+/* MEDIA */
+
+
+@media (max-width: 715.98px) {
+    .inner__field-title {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 658.98px) {
+    .field-form {
+        border: 1px solid transparent;
+        padding: 12px;
+    }
+
+    .inner-field-phone__content,
+    .inner-field-personal__adress__content {
+        padding-right: 0;
+        padding-top: 20px;
+    }
+
+    .field-value {
+        padding-left: 20px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 650.98px) {
+    /* HEADER */
+
+    .field-inner__header {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 592.98px) {
+
+    /* HEADER */
+    
+    .inner-field-padding {
+        padding-right: 0;
+    }
+
+    .field-logo {
+        padding-left: 70px;
+    }
+}
+
+@media (max-width: 456px) {
+
+    /* BIRTHDAY FORM  */
+
+    .field-date > div:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 18px;
+    }
+
+    .field-date > div:first-child {
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 410.98px) {
+    .field-privacy-buttons > button {
+        padding: 5px 34px;
+    }
+
+    .field-privacy-block > h3 {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 366.98px) {
+    .field-privacy-buttons {
+        flex-direction: column;
+    }
+
+    .field-privacy-buttons > button:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 321.98px) {
+    .field-page__content {
+        padding: 110px 10px;
+    }
+    .field-form {
+        padding: 0;
+    }
+    
+    .inner__field-title > h1 {
+        font-size: 19px;
+        font-weight: 600;
+    }
+    
+    .inner__field-title {
+        padding-top: 10px;
+    }
+    
+    .field-input-value {
+        font-weight: 600;
+        letter-spacing: 0.90;
+    }
+
+    .phone > p, .phone-confirm > p {
+        font-size: 13px;
+    }
+
+    .privacy-text {
+        font-size: 14px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons > button:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}

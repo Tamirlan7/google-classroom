@@ -27,13 +27,11 @@ async (dispatch: Dispatch<RegisterSuccess | RegisterFail>) => {
                 type: AuthActionTypes.REGISTER_SUCCESS
             })
         } else {
-            console.log(res.data)
             dispatch({
                 type: AuthActionTypes.REGISTER_FAIL
             })
         }
     } catch (err) {
-        console.log(err)
         dispatch({
             type: AuthActionTypes.REGISTER_FAIL,
         })
@@ -64,13 +62,11 @@ async (dispatch: Dispatch<LoginSuccess | LoginFail>) => {
                 type: AuthActionTypes.LOGIN_SUCCESS
             })
         } else {
-            console.log(res.data.error);
             dispatch({
                 type: AuthActionTypes.LOGIN_FAIL
             })   
         }
     } catch (err) {
-        console.log(err);
         dispatch({
             type: AuthActionTypes.LOGIN_FAIL,
         })
@@ -117,17 +113,18 @@ export const checkAuthenticated = () => async (dispatch: Dispatch<AuthenticatedS
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'X-CSRFToken': Cookies.get('csrftoken')
         }
     }
 
     try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/accounts/authenticated/`, config);
-        if (res.data.success) {
+        if ((await res).data.success) {
             dispatch({
                 type: AuthActionTypes.AUTHENTICATED_SUCCESS
             })
         } else {
-            console.log(res.data['error'])
+            console.log((await res).data['error'])
             dispatch({
                 type: AuthActionTypes.AUTHENTICATED_FAIL
             })

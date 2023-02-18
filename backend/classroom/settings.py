@@ -148,9 +148,14 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+CSRF_TRUSTED_ORIGINS = [
+     "http://localhost:3000"
+]
+
+SESSION_COOKIE_SAMESITE = None
 
 CORS_ORIGIN_ALLOW_ALL = True
 APPEND_SLASH = False
