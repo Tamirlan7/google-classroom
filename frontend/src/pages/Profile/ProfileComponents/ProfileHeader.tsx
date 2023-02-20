@@ -63,7 +63,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
                     <div className="icons-search" role={"button"}><SearchIcon /></div>
                     <span><QuestionMark /></span>
                     <span><DottedMenu /></span>
-                    <div className="icons-avatar" onClick={() => setIsSettingsActive(prev => !prev)}>
+                    <div className="icons-avatar" onBlur={() => setIsSettingsActive(false)} onFocus={() => setIsSettingsActive(true)}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
                     </div>
                     {isSettingsActive && <Settings />}
