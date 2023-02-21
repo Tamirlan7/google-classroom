@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useTypedSelector } from "../../../hooks/redux";
 import '../Profile.css';
 import Settings from "../../../components/Settings/Settings";
+import { useOutsideClick } from "../../../hooks/useClick";
 
 
 interface ProfileHeaderProps extends React.PropsWithChildren {
@@ -15,12 +16,16 @@ interface ProfileHeaderProps extends React.PropsWithChildren {
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
         // state for header box-shadow 
         const [isSrolling, setIsScrolling] = useState<boolean>(false);
-        
         const [inputFocused, setInputFocused] = useState<boolean>(false);
-
         const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);
-
         const avatarPath = useTypedSelector(state => state.profile.profile.avatar)
+        
+        function closeSettings() {
+            setIsSettingsActive(false)
+        } 
+
+        const settingsRef = React.useRef<HTMLDivElement>(null); 
+        useOutsideClick(settingsRef, closeSettings);
 
         function addBoxShadow() {
             if(window.scrollY > 64) 
@@ -28,7 +33,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
             else
                 setIsScrolling(false);
         }
-    
+        
+
         document.addEventListener('scroll', addBoxShadow)
 
     return (
@@ -63,10 +69,10 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
                     <div className="icons-search" role={"button"}><SearchIcon /></div>
                     <span><QuestionMark /></span>
                     <span><DottedMenu /></span>
-                    <div className="icons-avatar" onBlur={() => setIsSettingsActive(false)} onFocus={() => setIsSettingsActive(true)}>
+                    <div className="icons-avatar" onClick={() => setIsSettingsActive(prev => true)}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
                     </div>
-                    {isSettingsActive && <Settings />}
+                    {isSettingsActive && <Settings settingsRef={settingsRef} />}
                 </div>
             </div>
             {children}

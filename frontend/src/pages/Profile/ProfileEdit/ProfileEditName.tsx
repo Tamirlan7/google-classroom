@@ -15,7 +15,7 @@ interface ProfileEditNameProps {
 const ProfileEditName: React.FC<ProfileEditNameProps> = ({ updateProfile }) => {
     const currentName = useTypedSelector(state => state.profile.profile.name)
     const currentSurname = useTypedSelector(state => state.profile.profile.surname)
-
+    console.log('ProfileEditName render');
     const [name, setName] = useState<{name: string, surname: string}>({
         name: '',
         surname: '' 
@@ -46,30 +46,34 @@ const ProfileEditName: React.FC<ProfileEditNameProps> = ({ updateProfile }) => {
                         <div className="edit-name__privacy-block privacy-block">
                             <p>Имя будет изменено во всех сервисах, где используется аккаунт Google. <span>Подробнее…</span></p>
                         </div>
-                        <div className="edit-name__form">
+                        <form className="edit-name__form">
                             <div className="move-input__field-form">
                                 <input 
-                                    className="move-input name-edit-input" 
+                                    className="move-input name-edit__input" 
                                     type="text" 
                                     name="name" 
                                     value={name.name}
+                                    pattern="[a-zA-Z\u0400-\u04ff\s0-9]+"
                                     placeholder=" " 
                                     onChange={(e) => onChange(e)}
+                                    required
                                 />
                                 <label className="move-label name-edit-label" htmlFor="name"><span>Имя</span></label>
                             </div>
                             <div className="move-input__field-form">
                                 <input 
-                                    className="move-input name-edit-input" 
+                                    className="move-input name-edit__input" 
                                     type="text" 
                                     name="surname"
                                     value={name.surname} 
                                     placeholder=" " 
+                                    pattern="[a-zA-Z\u0400-\u04ff\s0-9]+"
                                     onChange={(e) => onChange(e)}
+                                    required
                                 />
                                 <label className="move-label name-edit-label" htmlFor="surname"><span>Фамилия</span></label>
-                            </div>
-                        </div>
+                            </div>  
+                        </form>
                         <div className='field-form__info'>
                             <h3>Кто может видеть ваше имя</h3>
                             <div className='field-form__info-text'>
@@ -86,12 +90,12 @@ const ProfileEditName: React.FC<ProfileEditNameProps> = ({ updateProfile }) => {
                             <button
                                 type="submit" 
                                 className={
-                                    name.name !== currentName && name.name && name.surname || name.surname !== currentSurname && name.name && name.surname
+                                    name.name && name.surname && (name.name !== currentName  || name.surname !== currentSurname) 
                                     ? "submit-button submit-button-active" 
                                     : "submit-button"
                                 } 
                                 disabled={
-                                    name.name !== currentName && name.name && name.surname || name.surname !== currentSurname && name.name && name.surname 
+                                    name.name && name.surname && (name.name !== currentName  || name.surname !== currentSurname) 
                                     ? false 
                                     : true
                                 }

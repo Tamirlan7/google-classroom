@@ -12,7 +12,7 @@ interface ProfileFormPersonalAddressProps {
 }
 
 const ProfileFormPersonalAddress: React.FC<ProfileFormPersonalAddressProps> = ({ updateProfile }) => {
-
+    console.log('ProfileFormPersonalAddress render');
     const currentPersonalAddress = useTypedSelector(state => state.profile.profile.personal_address)
 
     const [personalAddress, setPersonalAddress] = useState<string>('')

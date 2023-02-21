@@ -14,7 +14,7 @@ interface ProfileFormEmailProps {
 const ProfileFormEmail: React.FC<ProfileFormEmailProps> = ({updateProfile}) => {
     const currentEmail = useTypedSelector(state => state.profile.profile.email)
     const [email, setEmail] = useState<string>('');
-
+    console.log('ProfileFormEmail render');
     useEffect(() => {
         if(currentEmail)
             setEmail(currentEmail)

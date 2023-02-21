@@ -67,9 +67,9 @@ const ProfileMainForm: React.FC<ProfileMainFormProps> = () => {
                         </div>
                         <div className="profile-field__value">
                             <p>Добавьте фото в аккаунт, чтобы другим пользователям было проще вас узнать.</p>
-                            <figure className="avatar-field-block">
+                            <div className="avatar-field-block">
                                 <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
-                            </figure>
+                            </div>
                         </div>
                     </div>
                     <List items={profileFields} render={(field, index) => 

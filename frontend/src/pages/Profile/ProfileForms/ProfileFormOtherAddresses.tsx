@@ -12,7 +12,7 @@ interface ProfileFormOtherAddressesProps {
 }
 
 const ProfileFormOtherAddresses: React.FC<ProfileFormOtherAddressesProps> = ({ updateProfile }) => {
-
+    console.log('ProfileFormOtherAddresses render');
     const currentOtherAddresses = useTypedSelector(state => state.profile.profile.other_addresses)
     const [otherAddresses, setOtherAddresses] = useState<string>('')
     

@@ -7,22 +7,26 @@ import defaultImg from '../../assets/images/default-avatar.png'
 import { Link } from "react-router-dom";
 
 
-const Settings: React.FC = () => {
+interface SettingsProps {
+    settingsRef: React.RefObject<HTMLDivElement>
+}
 
-    const { name, email, avatar } = useTypedSelector(state => state.profile.profile) 
+const Settings: React.FC<SettingsProps> = ({ settingsRef }) => {
+
+    const { name, surname, email, avatar } = useTypedSelector(state => state.profile.profile) 
 
     return (
-        <div className="settings">
+        <div className="settings" ref={settingsRef}>
             <div className="settings__manage">
                 <div className="settings-manage__info">
                     <div className="settings__avatar">
                         <div className="settings-avatar__img">
-                            <img src={defaultImg} alt="avatar" />
+                            <img src={`${process.env.REACT_APP_API_URL}${avatar}`} alt="avatar" />
                         </div>
                     </div>
                     <div className="settings__name">
-                        <small className="settings-name__name">{name ? name : 'Тамирлан Жукасаев'}</small>
-                        <small className="settings-name__email">{email ? email : 'zukasaevtamirlan1@gmail.com'}</small>
+                        <small className="settings-name__name">{name ? `${name} ${surname}` : 'Нет имени'}</small>
+                        <small className="settings-name__email">{email ? email : 'Нет почты'}</small>
                     </div>
                 </div>
                 <div className="settings-manage__button">

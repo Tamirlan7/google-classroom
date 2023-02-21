@@ -20,6 +20,8 @@ const Main: React.FC<MainProps> = ({ logout }) => {
         logout();
     }
 
+    console.log('Main render')
+
     return (
         <div className="main">
             <form onSubmit={(e) => onSubmit(e)}>

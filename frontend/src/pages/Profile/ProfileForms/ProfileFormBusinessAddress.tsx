@@ -14,7 +14,7 @@ interface ProfileFormPersonalAddressProps {
 const ProfileFormBusinessAddress: React.FC<ProfileFormPersonalAddressProps> = ({ updateProfile }) => {
     const currentBusinessAddress = useTypedSelector(state => state.profile.profile.business_address)
     const [businessAddress, setBusinessAddress] = useState<string>('')
-    
+    console.log('ProfileFormBusinessAddress render');
     useEffect(() => {
         if(currentBusinessAddress)
             setBusinessAddress(currentBusinessAddress)

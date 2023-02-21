@@ -30,7 +30,15 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ isAvatar, setIsAvatar, up
     const avatarPath = useTypedSelector(state => state.profile.profile.avatar)
     const [avatar, setAvatar] = useState<File | null>(null);
     const [avatarSrc, setAvatarSrc] = useState<string>('');
-
+    
+    useEffect(() => {
+        if(avatarSrc) {
+            setIsEditAvatar(false)
+            setIsAvatar(false)
+            setIsSaveAvatar(true);
+        }
+    }, [avatarSrc])
+    
     function onChange(e: React.ChangeEvent<HTMLInputElement>) {
         if(e.target.files) {
             const file = e.target.files[0]
@@ -43,6 +51,8 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ isAvatar, setIsAvatar, up
     function changeAvatar (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         updateProfile({avatar})
+
+        setIsSaveAvatar(false);
     }
 
     function onDragOverHandler(e: React.DragEvent) {
@@ -71,14 +81,6 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ isAvatar, setIsAvatar, up
         setAvatar(file);
         setAvatarSrc(URL.createObjectURL(file));
     }
-
-    useEffect(() => {
-        if(avatarSrc) {
-            setIsEditAvatar(false)
-            setIsAvatar(false)
-            setIsSaveAvatar(true);
-        }
-    }, [avatarSrc])
 
     // AVATAR SAVE
 
@@ -212,7 +214,9 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ isAvatar, setIsAvatar, up
                 </div>
                 <hr className="avatar-hr" />
                 <div className="avatar-block">
-                    <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
+                    <div className="avatar-block__inner">
+                        <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
+                    </div>
                 </div>
                 <div className="avatar-add">
                     <button onClick={() => {setIsEditAvatar(true); setIsAvatar(false)}}>

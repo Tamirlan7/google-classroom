@@ -8,6 +8,8 @@ const App: React.FC = () => {
 
     const [active, setActive] = useState<boolean>(false)
 
+    console.log('App render')
+
     return (
         <div className="app">
             <Layout>

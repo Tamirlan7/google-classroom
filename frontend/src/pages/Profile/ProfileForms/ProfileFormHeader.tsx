@@ -13,7 +13,7 @@ interface ProfileFormHeaderProps extends React.PropsWithChildren {
 const ProfileFormHeader: React.FC<ProfileFormHeaderProps> = ({ title }) => {
     const [isScrolling, setIsScrolling] = useState<boolean>(false);
     const avatarPath = useTypedSelector(state => state.profile.profile.avatar);
-
+    console.log('ProfileFormHeader render');
     function addBoxShadow() {
         if(window.scrollY > 64) 
             setIsScrolling(true)
@@ -53,4 +53,4 @@ const ProfileFormHeader: React.FC<ProfileFormHeaderProps> = ({ title }) => {
     )
 }
 
-export default ProfileFormHeader;
+export default React.memo(ProfileFormHeader);

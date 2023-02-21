@@ -15,7 +15,7 @@ interface ProfileEditNicknameProps {
 const ProfileEditNickname: React.FC<ProfileEditNicknameProps> = ({ updateProfile }) => {
     const currentNickname = useTypedSelector(state => state.profile.profile.nickname); 
     const [nickname, setNickname] = useState<string>('');
-
+    console.log('ProfileEditNickname render');
     useEffect(() => {
         if(currentNickname)
             setNickname(currentNickname)

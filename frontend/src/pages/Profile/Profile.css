@@ -433,6 +433,10 @@
     width: 80%;
 }
 
+.profile-field__value > p {
+    width: 80%;
+}
+
 .profile-contact-btn {
     display: flex;
     background-color: transparent;
@@ -557,11 +561,17 @@
     min-height: 96x;
     min-width: 96px;
     width: min(100vw - 38px, 288px);
+    box-sizing: content-box;
 }
 
-.avatar-block > img {
+.avatar-block__inner {
+    width: 100%;
     height: 100%;
-    max-width: 288px;
+}
+
+.avatar-block__inner > img {
+    height: 100%;
+    width: 100%;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -720,7 +730,7 @@
 }
 
 .save-avatar__img > img {
-    max-height: 100%;
+    height: 100%;
     width: 100%;
     object-position: center;
     object-fit: cover;
@@ -932,6 +942,7 @@
 
     .profile-field__value > p {
         display: none;
+        width: auto;
     }
 }
 

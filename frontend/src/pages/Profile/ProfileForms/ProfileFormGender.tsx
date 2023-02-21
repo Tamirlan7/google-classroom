@@ -15,7 +15,7 @@ interface ProfileFormGenderProps {
 const ProfileFormGender: React.FC<ProfileFormGenderProps> = ({ updateProfile }) => {
     const [gender, setGender] = useState<boolean | null>(null);
     const currentGender = useTypedSelector(state => state.profile.profile.gender);
-
+    console.log('ProfileFormGender render');
     useEffect(() => {
         if(currentGender !== undefined)
             setGender(currentGender)

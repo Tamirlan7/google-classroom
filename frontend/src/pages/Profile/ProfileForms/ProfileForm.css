@@ -528,6 +528,23 @@ button.button-selected {
     border-radius: 100%;
 }
 
+.name-edit__input:invalid {
+    border: 2px solid red;
+}
+
+.name-edit__input:invalid + .move-label > span {
+    color: red;
+}
+
+.name-edit__error {
+    color: red;
+    display: none;
+}
+
+.name-edit__input:invalid ~ .name-edit__error {
+    display: block;
+}
+
 .form-buttons {
     display: flex;
     justify-content: flex-end;

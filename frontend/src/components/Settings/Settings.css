@@ -79,6 +79,8 @@
     color: #000;
     display: flex;
     border: none;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 .settings-add__icon,
@@ -95,6 +97,7 @@
 }
 
 .settings__logout {
+    cursor: pointer;
     padding: 10px 0 15px;
     max-width: 100%;
     display: flex;

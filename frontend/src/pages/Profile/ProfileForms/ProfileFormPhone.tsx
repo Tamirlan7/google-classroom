@@ -10,7 +10,7 @@ import flagImg from '../../../assets/images/kazakhstan.png';
 const ProfileFormPhone: React.FC = () => {
     const navigate = useNavigate();
     const phone = useTypedSelector(state => state.profile.profile.phone)
-
+    console.log('ProfileFormPhone render');
     return (
         <div className='field-page field__phone-page'>
         <ProfileFormHeader  title="Номер телефона" />

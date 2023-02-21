@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
  
 const ProfileFormName: React.FC = () => {
     const { name, surname, nickname } = useTypedSelector(state => state.profile.profile)
-
+    console.log('ProfileFormName render');
     return (
         <div className='field-page field__name-page'>
             <ProfileFormHeader title="Имя" />

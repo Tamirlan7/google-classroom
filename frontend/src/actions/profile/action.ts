@@ -50,7 +50,7 @@ export function updateProfile (profile: IProfile) {
         }
 
         try {
-            const res = await axios.put<{success: string, profile: IProfile} | {error: string}, any>(`${process.env.REACT_APP_API_URL}/profile/api/`, body, config)
+            const res = await axios.put<{success: string, profile: IProfile} | {error: string}, any>(`${process.env.REACT_APP_API_URL}/api/profile/`, body, config)
 
             if((await res).data['success']) {
                 dispatch({
@@ -84,7 +84,7 @@ export function getProfile() {
         } 
 
         try {
-            const res = await axios.get<{success: string, profile: IProfile} | {error: string}, any>(`${process.env.REACT_APP_API_URL}/profile/api/`, config)
+            const res = await axios.get<{success: string, profile: IProfile} | {error: string}, any>(`${process.env.REACT_APP_API_URL}/api/profile/`, config)
 
             if((await res).data['success']) {
                 dispatch({

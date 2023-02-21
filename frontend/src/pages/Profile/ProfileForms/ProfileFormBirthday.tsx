@@ -18,6 +18,8 @@ const ProfileFormBirthday: React.FC<ProfileFormBirthdayProps> = ({ updateProfile
     const currentBirthday = useTypedSelector(state => state.profile.profile.birthday)
     const [formattedDate, formattedDateObj, changeDate] = useDate('');
 
+    console.log('ProfileFormBirthday render');
+
     useEffect(() => {
         if (currentBirthday)
             changeDate('all', currentBirthday)

@@ -21,7 +21,7 @@ async (dispatch: Dispatch<RegisterSuccess | RegisterFail>) => {
     });
 
     try {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/accounts/register/`, body, config)
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/accounts/register/`, body, config)
         if (res.data['success']) {
             dispatch({
                 type: AuthActionTypes.REGISTER_SUCCESS
@@ -56,7 +56,7 @@ async (dispatch: Dispatch<LoginSuccess | LoginFail>) => {
     });
 
     try {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/accounts/login/`, body, config)
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/accounts/login/`, body, config)
         if (res.data['success']) {
             dispatch({
                 type: AuthActionTypes.LOGIN_SUCCESS
@@ -87,7 +87,7 @@ export const logout = () => async (dispatch: Dispatch<LogoutFail | LogoutSuccess
     })
 
     try {
-        const res = axios.post(`${process.env.REACT_APP_API_URL}/accounts/logout/`, body, config)
+        const res = axios.post(`${process.env.REACT_APP_API_URL}/api/accounts/logout/`, body, config)
 
         if((await res).data.success) {
             dispatch({
@@ -118,7 +118,7 @@ export const checkAuthenticated = () => async (dispatch: Dispatch<AuthenticatedS
     }
 
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/accounts/authenticated/`, config);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/accounts/authenticated/`, config);
         if ((await res).data.success) {
             dispatch({
                 type: AuthActionTypes.AUTHENTICATED_SUCCESS

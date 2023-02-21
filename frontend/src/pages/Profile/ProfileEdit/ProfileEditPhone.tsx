@@ -13,7 +13,7 @@ interface ProfileEditPhoneProps {
 const ProfileEditPhone: React.FC<ProfileEditPhoneProps> = ({ updateProfile }) => {
     const currentPhone = useTypedSelector(state => state.profile.profile.phone)
     const [phone, setPhone] = useState<string>('')
-    
+    console.log('ProfileEditPhone render');
     useEffect(() => {
         if(currentPhone)
             setPhone(currentPhone)
