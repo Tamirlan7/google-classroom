@@ -1,6 +1,6 @@
 import React from "react";
 
-export function useOutsideClick(ref: React.RefObject<HTMLDivElement>, callback: () => void) {
+export function useOutsideClick(ref: React.RefObject<HTMLElement>, callback: () => void) {
     React.useEffect(() => {
         
       function handleClickOutside(event: Event ) {

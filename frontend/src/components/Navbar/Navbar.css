@@ -1,0 +1,91 @@
+.navbar {
+    position: fixed;
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 304px;
+    z-index: 999;
+    background: #fff;
+    transform: translateX(0);
+    transition: all .3s ease;
+}
+
+.navbar-menu {
+    padding: 8px 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navbar-menu__link {
+    display: flex;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    height: 56px;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.link-bg {
+    border-radius: 0 32px 32px 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    right: 32px;    
+}
+
+.ling-bg__light-blue {
+    background-color: rgba(26,115,232,.12);
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 40px;
+}
+
+.calendar__img, .courses__img {
+    color: #5f6368;
+    fill: #5f6368;
+}
+
+.menu-text {
+    margin-left: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3c4043;
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.separator {
+    display: block;
+    background-color: rgba(0,0,0,.12);
+    height: 1px;
+    margin: 8px 0;
+}
+
+.courses-list {
+
+}
+
+.courses-list__title {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 16px;
+    color: #5f6368;
+    line-height: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 14px;
+}

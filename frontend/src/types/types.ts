@@ -28,3 +28,10 @@ export interface IProfile {
     business_address?: string
     other_addresses?: string
 } 
+
+export interface IRoom {
+    name: string
+    section: string
+    subject: string
+    audience: string
+} 

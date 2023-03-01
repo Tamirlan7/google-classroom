@@ -1,0 +1,131 @@
+/* HEADER */
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 555;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+    height: 64px;
+    padding: 0 25px 0 15px;
+}
+
+/* -------------- logo */
+
+.main-nav {
+    margin-right: 15px;
+    color: #5f6368;
+    fill: #5f6368;
+}
+
+.main-logo, .main-header__right {
+    display: flex;
+    align-items: center;
+}
+
+.main-logo__icon::before {
+    content: url('../../../../assets/icons/google-icon.svg');
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.main-logo__text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5f6368;
+}
+
+/* -------------- logo */
+
+.main-header__left {
+    display: flex;
+    align-items: center;
+}
+
+.main-header__right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-header__apps > svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.main-header__create,
+.main-nav,
+.main-header__apps {
+    cursor: pointer;
+    border-radius: 50%;
+    box-sizing: content-box;
+    padding: 6px 8px 4px;
+    transition: .3s;
+}
+
+.main-nav:hover, 
+.main-header__create:hover,
+.main-header__apps:hover {
+    background: rgb(169, 166, 166, 0.2);
+}
+
+/* HEADER */
+
+
+/* Add Course */
+
+.add-course__list {
+    position: absolute;
+    right: 100px;
+    top: 36px;
+    max-height: 670px;
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 
+    0 6px 10px 0 rgb(0 0 0 / 14%), 
+    0 1px 18px 0 rgb(0 0 0 / 12%);
+    min-width: 159px;
+    min-height: 112px;
+    background-color: #fff;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-course__list-item {
+    height: 48px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.add-course__list-item:hover {
+    background-color: #5f636817;
+}
+
+/* Add Course */
+
+
+
+@media (max-width: 480.98px) {
+    /* HEADER */
+
+    .main-header__avatar, 
+    .main-header__apps {
+        display: none;
+    }
+
+    /* HEADER */
+}

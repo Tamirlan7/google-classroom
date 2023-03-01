@@ -1,0 +1,133 @@
+/* CONFIRM MODAL */
+
+/* ------------ CONFIRM MODAL HEADER */
+
+div.confirm-modal {
+    max-width: 464px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%),
+     0 4px 8px 3px rgb(60 64 67 / 15%);
+     border-radius: 8px;
+     outline: 1px solid transparent;
+     overflow: hidden;
+     position: relative;
+     flex-shrink: 1;
+     max-height: 100%;
+     padding: 0;
+}
+
+.confirm-modal__header {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 18px 24px 16px;
+    word-wrap: break-word;
+    font-size: 16px;
+    letter-spacing: .1px;
+    font-weight: 600;
+}
+
+/* ------------ CONFIRM MODAL HEADER */
+
+
+/* ------------ CONFIRM MODAL MAIN */
+
+.confirm-modal__main {
+    position: relative;
+    padding: 0 24px;
+    overflow-y: auto;
+    flex-grow: 2;
+    flex-shrink: 2;
+    font-size: 14px;
+    letter-spacing: .2px;
+    line-height: 20px;
+    color: rgba(0,0,0,.87);
+}
+
+.confirm-modal__link {
+    color: #1a73e8;
+}
+
+.confirm-main__text {
+    margin-bottom: 16px;
+}
+
+.confirm-main__label {
+    background: #f5f5f5;
+    display: flex;
+    margin-top: 24px;
+    padding: 16px;
+    overflow: hidden;
+}
+
+.confirm-main__label-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.confirm__checkbox {
+    width: 18px;
+    height: 18px;
+}
+
+.confirm-main__label-text {
+    margin-left: 8px;
+}
+
+/* ------------ CONFIRM MODAL MAIN */
+
+
+/* ------------ CONFIRM MODAL FOOTER */
+
+.confirm-modal__footer {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-end;
+    padding: 16px 8px 8px 24px;
+}
+
+.confirm-button {
+    border: none;
+    background: transparent;
+    padding: 0 8px;
+    color: #5f6368;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease;
+    min-height: 36px;
+}
+
+.confirm-button:hover {
+    background: #5f636813;
+}
+
+.confirm-button__disabled {
+    color: rgba(0,0,0,.38);
+    cursor: default;
+}
+
+.confirm-button__disabled:hover {
+    background: transparent;
+}
+
+.confirm-button__continue {
+    color: #1a73e8;
+}
+
+/* ------------ CONFIRM MODAL FOOTER */
+
+/* CONFIRM MODAL */
+
+
+
+
+/* ADD COURSE MODAL */
+
+
+/* ADD COURSE MODAL */
