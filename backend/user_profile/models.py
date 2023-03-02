@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from classroom import settings
 
 
 def image_upload_path(instance, filename):
@@ -7,7 +7,7 @@ def image_upload_path(instance, filename):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, blank=True, null=True)
     surname = models.CharField(max_length=255, blank=True, null=True)
     nickname = models.CharField(max_length=255, blank=True, null=True)

@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', views.LogoutUser.as_view()),
     path('csrf_cookie/', views.GetCSRFToken.as_view()),
     path('users/', views.GetUsersView.as_view()),
+    path('user/', views.GetUserView.as_view()),
 ]

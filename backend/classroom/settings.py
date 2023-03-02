@@ -41,6 +41,9 @@ INSTALLED_APPS = [
 
     'accounts.apps.AccountsConfig',
     'user_profile.apps.UserProfileConfig',
+    'room.apps.RoomConfig',
+
+
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -136,7 +139,6 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -159,3 +161,4 @@ SESSION_COOKIE_SAMESITE = None
 
 CORS_ORIGIN_ALLOW_ALL = True
 APPEND_SLASH = False
+AUTH_USER_MODEL = 'accounts.CustomUser'

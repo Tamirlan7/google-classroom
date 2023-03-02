@@ -2,11 +2,12 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework.response import Response
-from django.contrib.auth.models import User
+from .models import CustomUser
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from .serializers import UserSerializer
 from user_profile.models import Profile
+from django.shortcuts import get_object_or_404
 
 
 @method_decorator(csrf_protect, name='dispatch')
@@ -31,13 +32,13 @@ class RegisterUser(APIView):
             if re_password != password:
                 return Response({'error': 'the password does not match'})
 
-            if User.objects.filter(username=username).exists():
+            if CustomUser.objects.filter(username=username).exists():
                 return Response({'error': 'User with this username already exists'})
 
             if len(str(password)) < 6:
                 return Response({'error': 'password must be at least 6 characters'})
 
-            user = User.objects.create_user(username=username, password=password)
+            user = CustomUser.objects.create_user(username=username, password=password)
             Profile.objects.create(user=user)
 
             user = authenticate(username=username, password=password)
@@ -116,10 +117,22 @@ class GetCSRFToken(APIView):
         return Response({'success': 'CSRF cookie set'})
 
 
+class GetUserView(APIView):
+    permissions_classes = (permissions.AllowAny,)
+
+    def get(self, request):
+        try:
+            user = get_object_or_404(CustomUser, id=request.user.id)
+            user = UserSerializer(user, many=False)
+            return Response({'success': user.data})
+        except:
+            return Response({'error': 'something went wrong while receiving user'})
+
+
 class GetUsersView(APIView):
     permission_classes = (permissions.AllowAny, )
 
     def get(self, request):
-        users = User.objects.all()
+        users = CustomUser.objects.all()
         users = UserSerializer(users, many=True)
         return Response(users.data)
