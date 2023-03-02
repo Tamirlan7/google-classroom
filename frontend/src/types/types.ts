@@ -30,8 +30,22 @@ export interface IProfile {
 } 
 
 export interface IRoom {
-    name: string
+    id: number
+    owner: number
+    title: string
     section: string
     subject: string
     audience: string
-} 
+    created_at: string
+    updated_at: string
+    code: string
+    cover: string
+    theme_color: string
+}
+
+
+export interface IUser {
+    id: number
+    username: string
+    rooms: IRoom
+}

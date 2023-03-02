@@ -8,9 +8,29 @@ interface AddCourseProps {
     setIsConfirmedModal: (prev: React.SetStateAction<boolean>) => void
 }
 
+interface IRoomData {
+    title: string
+    section: string
+    audience: string
+    subject: string
+}
+
 const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfirmedModal }) => {
     const [isAddCourseModal, setIsAddCourseModal] = React.useState<boolean>(false);
     const [isCheckboxChecked, setIsCheckboxChecked] = React.useState<boolean>(false);
+    const [roomData, setRoomData] = React.useState<IRoomData>({
+        audience: '',
+        title: '',
+        subject: '',
+        section: '',
+    })
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+        setRoomData(prev => ({...prev, [e.target.name]: e.target.value}))
+
+    function onCreateRoom(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+    }
 
     function openAddCourseModal() {
         setIsAddCourseModal(true)
@@ -82,7 +102,69 @@ const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfir
             setActive={setIsAddCourseModal}
             className={"add-course"}
         >
-
+            <div className="add-course__header">
+                <div className="add-course__title">
+                    <div>
+                        Создать курс
+                    </div>
+                </div>
+            </div>
+            <div className="add-course__main">
+                <div className="add-course__input-block">
+                    <input 
+                        type="text" 
+                        className="add-course__input"
+                        placeholder=" "
+                        name="title"
+                        onChange={(e) => onChange(e)}
+                        required
+                    />
+                    <label className="add-course__label"><span>Название курса (обязательно)</span></label>
+                    <div className="add-course__line"></div>
+                </div>
+                <div className="add-course__input-block">
+                    <input 
+                        type="text" 
+                        className="add-course__input"
+                        placeholder=" "
+                        name="section"
+                        onChange={(e) => onChange(e)}
+                    />
+                    <label className="add-course__label"><span>Раздел</span></label>
+                    <div className="add-course__line"></div>
+                </div>
+                <div className="add-course__input-block">
+                    <input 
+                        type="text" 
+                        className="add-course__input"
+                        placeholder=" " 
+                        name="subject"
+                        onChange={(e) => onChange(e)}
+                    />
+                    <label className="add-course__label"><span>Предмет</span></label>
+                    <div className="add-course__line"></div>
+                </div>
+                <div className="add-course__input-block">
+                    <input 
+                        type="text" 
+                        className="add-course__input"
+                        placeholder=" " 
+                        name="audience"
+                        onChange={(e) => onChange(e)}
+                    />
+                    <label className="add-course__label"><span>Аудитория</span></label>
+                    <div className="add-course__line"></div>
+                </div> 
+            </div>
+            <form onSubmit={(e) => onCreateRoom(e)} className="confirm-modal__footer add-course__footer">
+                    <button className="confirm-button confirm-button__back" onClick={closeConfirmedModal}>Назад</button>
+                    <button 
+                        type="submit"
+                        className={roomData.title ? "confirm-button confirm-button__continue" : "confirm-button confirm-button__disabled"} 
+                        disabled={roomData.title ? false : true}
+                        onClick={openAddCourseModal}
+                    >Продолжить</button>
+            </form>
         </ModalWindow>
         )
     }

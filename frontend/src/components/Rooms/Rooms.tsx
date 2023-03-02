@@ -15,7 +15,7 @@ const Room: React.FC<RoomProps> = ({ rooms }) => {
                 <div className='room'>
                     <div className='room-header'>
                         <div className='room__left-header'>
-                            <h1>{room.name}</h1>
+                            <h1>{room.title}</h1>
                             <small>{room.section}</small>
                         </div>
                         <div className='room__right-header'>
