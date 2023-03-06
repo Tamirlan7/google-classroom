@@ -31,7 +31,12 @@ export interface IProfile {
 
 export interface IRoom {
     id: number
-    owner: number
+    owner_profile: {
+        user: number
+        name: string
+        surname: string
+        avatar: string
+    }
     title: string
     section: string
     subject: string
@@ -43,9 +48,18 @@ export interface IRoom {
     theme_color: string
 }
 
-
 export interface IUser {
     id: number
     username: string
-    rooms: IRoom
+    rooms: IRoom[]
+}
+
+export interface ITask {
+    id: number
+    body: string
+    video_link: string
+    files: string
+    link: string
+    created_at: string
+    updated_at: string
 }

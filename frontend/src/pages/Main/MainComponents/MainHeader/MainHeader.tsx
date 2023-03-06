@@ -12,10 +12,15 @@ import AddCourseForm from "../../../../components/AddCourse/AddCourseForm";
 
 const MainHeader: React.FC = () => {
     const [ isSettingsActive, setIsSettingsActive ] = React.useState<boolean>(false)
-    const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false)
-    const [isAddCourse, setIsAddCourse] = React.useState<boolean>(false);
+    const [ isMenuOpen, setIsMenuOpen ] = React.useState<boolean>(false)
+    const [ isAddCourse, setIsAddCourse ] = React.useState<boolean>(false);
+    const [ isScrolling, setIsScrolling ] = React.useState<boolean>(false);
 
     const { avatar } = useTypedSelector(state => state.profile.profile)
+
+    function openSettings() {
+        setIsSettingsActive(true)
+    }
 
     function closeSettings() {
         setIsSettingsActive(false)
@@ -29,6 +34,24 @@ const MainHeader: React.FC = () => {
         setIsAddCourse(false)
     }
 
+    const addBoxShadow = React.useCallback(() => {
+        if(window.scrollY > 64) 
+            setIsScrolling(true)
+        else
+            setIsScrolling(false);
+    }, [])
+
+
+    React.useEffect(() => {
+
+        return () => {
+            document.removeEventListener('scroll', addBoxShadow)
+        }
+    }) 
+
+    document.addEventListener('scroll', addBoxShadow)
+
+
     const navbarRef = React.useRef<HTMLMenuElement>(null)
     useOutsideClick(navbarRef, closeNavbar);
 
@@ -39,7 +62,7 @@ const MainHeader: React.FC = () => {
     useOutsideClick(settingsRef, closeSettings);
 
     return (
-        <header className="main-header">
+        <header className={isScrolling ? "main-header header-shadow" : "main-header"}>
             <div className="main-header__left">
                 <div 
                     className="main-nav" 
@@ -70,7 +93,7 @@ const MainHeader: React.FC = () => {
                     <DottedMenuIcon />
                 </div>
                 <div className="main-header__avatar">
-                    <div className="icons-avatar" onClick={() => setIsSettingsActive(true)}>
+                    <div className="icons-avatar" onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatar}`} alt="avatar" />
                     </div>
                     {isSettingsActive && <Settings settingsRef={settingsRef} />}

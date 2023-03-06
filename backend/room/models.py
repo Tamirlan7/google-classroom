@@ -1,5 +1,6 @@
 from django.db import models
 from classroom import settings
+from user_profile.models import Profile
 
 
 def file_upload_path(instance, filename):
@@ -16,7 +17,7 @@ class Room(models.Model):
     code = models.CharField(max_length=7)
     cover = models.CharField(max_length=50, default="media/cover/code.jpg")
     theme_color = models.CharField(max_length=10, default="blue")
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    owner_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

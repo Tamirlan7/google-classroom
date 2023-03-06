@@ -1,0 +1,151 @@
+.room-details__cover-block {
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 24px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+
+.room-details__cover {
+    height: 240px;
+    width: 100%;
+    position: relative;
+}
+
+.room-details__cover-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.room-details__cover-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 16px 24px;
+    right: 0;
+}
+
+.room-details__cover-settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+}
+
+.cover-settings__button {
+    display: flex;
+    height: 36px;
+    align-items: center;
+    background: #fff;
+    padding: 0 16px 0 12px;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%),
+    0 1px 1px 0 rgb(0 0 0 / 14%), 
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cover-settings__button-blue {
+    color: rgb(23,78,166);
+    color: rgb(23,78,166);
+    transition: .1s;
+}
+
+
+.cover-settings__button-pink {
+    color: rgb(184,6,114);
+    fill: rgb(184,6,114);
+}
+
+.cover-settings__button-green {
+    color: rgb(19, 115, 51);
+    fill: rgb(19, 115, 51);
+}
+
+.cover-settings__button-cyan {
+    color: rgb(25,103,210);
+    fill: rgb(25,103,210);
+}
+
+.cover-settings__button-purple {
+    color: rgb(118,39,187);
+    fill: rgb(118,39,187);
+}
+
+.cover-settings__button-orange {
+    color: rgb(194,100,1);
+    fill: rgb(194,100,1);
+}
+
+.cover-settings__button-turquoise {
+    color: rgb(0,123,131);
+    fill: rgb(0,123,131);
+}
+
+.cover-settings__button-grey {
+    color: rgb(32,33,36);
+    fill: rgb(32,33,36);
+}
+
+.cover-settings__button-icon {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-details__info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    fill: #fff;
+    padding: 4px;
+}
+
+.room-details__info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 6px;
+    box-sizing: content-box;
+    transition: .2s;
+}
+
+.room-details__info-icon:hover {
+    background-color: #00000025;
+}
+
+.room-details__info-icon > svg {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+
+
+
+.room-details__cover-info {
+    background: #fff;
+    display: flex;
+    padding: 24px;
+}
+
+.room-details__info-item {
+    display: flex;
+    align-items: center;
+}
+
+.room-details__info-item__key {
+    margin-right: 16px;
+    color: #3c4043;
+}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { RegisterSuccess, RegisterFail } from './types';
 
+
 export const register = (username: string, password: string, re_password: string) => 
 async (dispatch: Dispatch<RegisterSuccess | RegisterFail>) => {
     const config = {

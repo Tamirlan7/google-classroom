@@ -1,11 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import ModalWindow from "../../UI/ModalWindow/ModalWindow";
 import './AddCourseForm.css' 
+import { createRoom } from "../../actions/room/action"; 
 
 
 interface AddCourseProps {
     isConfirmedModal: boolean
     setIsConfirmedModal: (prev: React.SetStateAction<boolean>) => void
+    createRoom: ({...args}: IRoomData) => void
 }
 
 interface IRoomData {
@@ -15,7 +18,7 @@ interface IRoomData {
     subject: string
 }
 
-const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfirmedModal }) => {
+const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfirmedModal, createRoom }) => {
     const [isAddCourseModal, setIsAddCourseModal] = React.useState<boolean>(false);
     const [isCheckboxChecked, setIsCheckboxChecked] = React.useState<boolean>(false);
     const [roomData, setRoomData] = React.useState<IRoomData>({
@@ -25,17 +28,59 @@ const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfir
         section: '',
     })
 
+    const inputs = [
+        {
+            type: "text",
+            className: "add-course__input",
+            placeholder: " ",
+            name: "title",
+            required: true,
+            text: 'Название курса (обязательно)',
+        },
+        {
+            type: "text",
+            className: "add-course__input",
+            placeholder: " ",
+            name: "section",
+            required: false,
+            text: 'Раздел',
+        },
+        {
+            type: "text",
+            className: "add-course__input",
+            placeholder: " ",
+            name: "subject",
+            required: false,
+            text: 'Предмет',
+        },
+        {
+            type: "text",
+            className: "add-course__input",
+            placeholder: " ",
+            name: "audience",
+            required: false,
+            text: 'Аудитория',
+        },
+    ]
+
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
         setRoomData(prev => ({...prev, [e.target.name]: e.target.value}))
 
     function onCreateRoom(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
+        createRoom(roomData)
+        setIsAddCourseModal(false)
+        setRoomData({audience: '', section: '', subject: '', title: ''})
     }
 
     function openAddCourseModal() {
         setIsAddCourseModal(true)
         setIsConfirmedModal(false)
         setIsCheckboxChecked(false)
+    }
+
+    function closeAddCourseModal() {
+        setIsAddCourseModal(false)
     }
 
     function closeConfirmedModal() {
@@ -84,12 +129,12 @@ const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfir
                     
                 </div>
                 <div className="confirm-modal__footer">
-                    <button className="confirm-button confirm-button__back" onClick={closeConfirmedModal}>Назад</button>
+                    <button className="confirm-button confirm-button__back" onClick={closeAddCourseModal}>Отмена</button>
                     <button 
                         className={isCheckboxChecked ? "confirm-button confirm-button__continue" : "confirm-button confirm-button__disabled"} 
                         disabled={isCheckboxChecked ? false : true}
                         onClick={openAddCourseModal}
-                    >Продолжить</button>
+                    >Создать</button>
                 </div>
             </ModalWindow> 
         )
@@ -110,51 +155,20 @@ const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfir
                 </div>
             </div>
             <div className="add-course__main">
-                <div className="add-course__input-block">
-                    <input 
-                        type="text" 
-                        className="add-course__input"
-                        placeholder=" "
-                        name="title"
-                        onChange={(e) => onChange(e)}
-                        required
-                    />
-                    <label className="add-course__label"><span>Название курса (обязательно)</span></label>
-                    <div className="add-course__line"></div>
-                </div>
-                <div className="add-course__input-block">
-                    <input 
-                        type="text" 
-                        className="add-course__input"
-                        placeholder=" "
-                        name="section"
-                        onChange={(e) => onChange(e)}
-                    />
-                    <label className="add-course__label"><span>Раздел</span></label>
-                    <div className="add-course__line"></div>
-                </div>
-                <div className="add-course__input-block">
-                    <input 
-                        type="text" 
-                        className="add-course__input"
-                        placeholder=" " 
-                        name="subject"
-                        onChange={(e) => onChange(e)}
-                    />
-                    <label className="add-course__label"><span>Предмет</span></label>
-                    <div className="add-course__line"></div>
-                </div>
-                <div className="add-course__input-block">
-                    <input 
-                        type="text" 
-                        className="add-course__input"
-                        placeholder=" " 
-                        name="audience"
-                        onChange={(e) => onChange(e)}
-                    />
-                    <label className="add-course__label"><span>Аудитория</span></label>
-                    <div className="add-course__line"></div>
-                </div> 
+                {inputs.map((input) => (
+                    <div className="add-course__input-block">
+                        <input 
+                            type={input.type} 
+                            className={input.className}
+                            placeholder={input.placeholder}
+                            name={input.name}
+                            onChange={(e) => onChange(e)}
+                            required={input.required}
+                        />
+                        <label className="add-course__label"><span>{input.text}</span></label>
+                        <div className="add-course__line"></div>
+                    </div>
+                ))} 
             </div>
             <form onSubmit={(e) => onCreateRoom(e)} className="confirm-modal__footer add-course__footer">
                     <button className="confirm-button confirm-button__back" onClick={closeConfirmedModal}>Назад</button>
@@ -172,4 +186,4 @@ const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfir
     return <></>
 }
 
-export default AddCourseForm;
+export default connect(null, { createRoom })(AddCourseForm);

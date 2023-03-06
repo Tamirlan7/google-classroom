@@ -31,7 +31,7 @@ def generate_theme_color():
 
 def generate_cover():
     random_number = random.randint(0, 9)
-    cover = 'media/cover/'
+    cover = '/media/covers/'
 
     match random_number:
         case 1:

@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useCallback, useEffect, useState }  from "react";
 import { ReactComponent as SearchIcon } from '../../../assets/icons/search-icon.svg';
 import { ReactComponent as DottedMenu } from '../../../assets/icons/dotted-menu.svg';
 import { ReactComponent as QuestionMark } from '../../../assets/icons/question-mark.svg';
@@ -15,30 +15,37 @@ interface ProfileHeaderProps extends React.PropsWithChildren {
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
         // state for header box-shadow 
-        const [isSrolling, setIsScrolling] = useState<boolean>(false);
+        const [isScrolling, setIsScrolling] = useState<boolean>(false);
         const [inputFocused, setInputFocused] = useState<boolean>(false);
         const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);
         const avatarPath = useTypedSelector(state => state.profile.profile.avatar)
         
-        function closeSettings() {
-            setIsSettingsActive(false)
-        } 
-
         const settingsRef = React.useRef<HTMLDivElement>(null); 
         useOutsideClick(settingsRef, closeSettings);
 
-        function addBoxShadow() {
+        const addBoxShadow = useCallback(() => {
             if(window.scrollY > 64) 
                 setIsScrolling(true)
             else
                 setIsScrolling(false);
+        }, [])
+
+
+        function closeSettings() {
+            setIsSettingsActive(false)
         }
-        
+
+        useEffect(() => {
+
+            return () => {
+                document.removeEventListener('scroll', addBoxShadow)
+            }
+        }) 
 
         document.addEventListener('scroll', addBoxShadow)
 
     return (
-        <header className={isSrolling ? 'profile-header header-shadow' : 'profile-header'}>
+        <header className={isScrolling ? 'profile-header header-shadow' : 'profile-header'}>
             <div className="inner__header">
                 <div className="logo">
                     <Link to="/" className="logo-link">

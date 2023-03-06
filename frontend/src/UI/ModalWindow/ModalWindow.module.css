@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 255;
+    z-index: 9999;
     left: 0;
     top: 0;
     transition: .2s;

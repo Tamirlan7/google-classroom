@@ -23,7 +23,7 @@ const CSRFToken: React.FC = () => {
 
     async function fetchToken () {
         try {
-            return await axios.get(`${process.env.REACT_APP_API_URL}/accounts/csrf_cookie/`);
+            await axios.get(`${process.env.REACT_APP_API_URL}/api/accounts/csrf_cookie/`);
         } catch (err) {
             console.log(err);
         }

@@ -1,0 +1,317 @@
+.room-details__header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    position: fixed;
+    top: 0;
+    transition: .2s ease;
+    width: 100%;
+    z-index: 986;
+}
+
+.room-details__header-inner {
+    display: flex;
+    align-items: center;
+}
+
+.room-details__menu-icon {
+    fill: #5f6368;
+    margin-right: 12px;
+}
+
+.room-details__header-title {
+    height: 64px;
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-details__title-section {
+    letter-spacing: 0.9px;
+    color: #5f6368;
+}
+
+.room-details__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .1s;
+    cursor: pointer;
+}
+
+.room-details__title-pink:hover {
+    color: rgb(184,6,114);
+    text-decoration: underline;
+}
+
+.room-details__title-green:hover {
+    color: rgb(19, 115, 51);
+    text-decoration: underline;
+}
+
+.room-details__title-blue:hover {
+    color: rgb(23,78,166);
+    text-decoration: underline;
+}
+
+.room-details__title-grey:hover {
+    color: rgb(32,33,36);
+    text-decoration: underline;
+}
+
+.room-details__title-cyan:hover {
+    color: rgb(25,103,210);
+    text-decoration: underline;
+}
+
+.room-details__title-orange:hover {
+    color: rgb(194,100,1);
+    text-decoration: underline;
+}
+
+.room-details__title-turquoise:hover {
+    color: rgb(0,123,131);
+    text-decoration: underline;
+}
+
+.room-details__title-purple:hover {
+    color: rgb(118,39,187);
+    text-decoration: underline;
+}
+
+.room-details__title-title {
+    font-weight: 600;
+}
+
+
+
+.room-details__nav,
+.room-details__nav-responsible {
+    margin: 0 16px;
+    display: flex;
+    justify-content: center;
+    padding-right: 16px;
+    align-items: center;
+    height: 64px;
+    flex: 1 1 1px;
+}
+
+.room-details__nav-item {
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.room-details__nav-link {
+    color: #5f6368;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-weight: 600;
+    padding: 0 24px;
+    font-size: 14px;
+}
+
+.room-details__nav-link__active::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -2px;
+    height: 0;
+    border-radius: 4px 4px 0 0;
+}
+
+/* THEME_COLOR LINK */
+
+/* --------- GREEN */
+
+.room-details__nav-link__active-green {
+    color: rgb(19, 115, 51);
+}
+
+.room-details__nav-link__active-green::after {
+    border-top: 4px solid rgb(19,115,51);
+}
+
+/* --------- GREEN */
+
+/* --------- PINK */
+
+.room-details__nav-link__active-pink {
+    color: rgb(184,6,114);
+}
+
+.room-details__nav-link__active-pink::after {
+    border-top: 4px solid rgb(184,6,114);
+}
+
+/* --------- PINK */
+
+/* --------- BLUE */
+
+.room-details__nav-link__active-blue {
+    color: rgb(23,78,166);
+}
+
+.room-details__nav-link__active-blue::after {
+    border-top: 4px solid rgb(23,78,166);
+}
+
+/* --------- BLUE */
+
+
+/* --------- GREY */
+
+.room-details__nav-link__active-grey {
+    color: rgb(32,33,36);
+}
+
+.room-details__nav-link__active-grey::after {
+    border-top: 4px solid rgb(32,33,36);
+}
+
+/* --------- GREY */
+
+
+/* --------- CYAN */
+
+.room-details__nav-link__active-cyan {
+    color: rgb(25,103,210);
+}
+
+.room-details__nav-link__active-cyan::after {
+    border-top: 4px solid rgb(25,103,210);
+}
+
+/* --------- CYAN */
+
+
+/* --------- ORANGE */
+
+.room-details__nav-link__active-orange {
+    color: rgb(194,100,1);
+}
+
+.room-details__nav-link__active-orange::after {
+    border-top: 4px solid rgb(194,100,1);
+}
+
+/* --------- ORANGE */
+
+
+
+/* --------- PURPLE */
+
+.room-details__nav-link__active-purple {
+    color: rgb(118,39,187);
+}
+
+.room-details__nav-link__active-purple::after {
+    border-top: 4px solid rgb(118,39,187);
+}
+
+
+/* --------- PURPLE */
+
+
+/* --------- TURQUOISE */
+
+.room-details__nav-link__active-turquoise {
+    color: rgb(0,123,131);
+}
+
+.room-details__nav-link__active-turquoise::after {
+    border-top: 4px solid rgb(0,123,131);
+}
+
+/* --------- TURQUOISE */
+
+
+/* THEME_COLOR LINK */
+
+.room-details__icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 24px;
+    fill: #5f6368;
+}
+
+.room-details__icon,
+.room-details__menu-icon {
+    transition: .1s;
+    padding: 6px 6px 2px 6px;
+    box-sizing: content-box;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.room-details__icon:hover,
+.room-details__menu-icon:hover {
+    background: #5f63681d;
+}
+
+.room-details__avatar > img {
+    border-radius: 50%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.room-details__avatar {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    padding: 1px;
+    transition: .1s;
+    border: 2px solid transparent
+}
+
+.room-details__avatar:hover {
+    border: 2px solid #5f636832;
+}
+
+
+.room-details__nav-responsible-block {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@media (max-width: 1041.98px) {
+   .room-details__nav {
+        display: none;
+   } 
+
+   .room-details__nav-responsible-block {
+        display: flex;
+   }
+
+   .room-details__header-inner {
+        justify-content: space-between;
+   }
+}
+
+
+@media(max-width: 480.98px) {
+    .room-details__avatar,
+    .room-details__apps {
+        display: none;
+    }
+
+    .room-details__nav-responsible-block {
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width: 468.98px) {
+    .room-details__nav-responsible-block {
+        justify-content: normal;
+    }
+}

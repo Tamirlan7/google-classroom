@@ -1,37 +1,29 @@
 import { RoomAction, RoomActionTypes } from "../actions/room/types"
-import { IUser } from "../types/types"
+import { IRoom, IUser, ITask } from "../types/types"
 
 interface IState {
-    user: IUser
+    user: IUser | null
+    currentRoom: IRoom | null
+    currentTasks: ITask | null
 }
 
 const initialState: IState = {
-    user: {
-        id: 0,
-        username: '',
-        rooms: {
-            title: '',
-            audience: '',
-            section: '',
-            subject: '',
-            code: '',
-            updated_at: '',
-            created_at: '',
-            cover: '',
-            id: 0,
-            owner: 0,
-            theme_color: '',
-        }
-    }
+    user: null,
+    currentRoom: null,
+    currentTasks: null
 }
 
 const room = (state = initialState, action: RoomAction): IState => {
     const { type, payload } = action
 
     switch(type) {
-        case RoomActionTypes.GET_USERS_SUCCESS:
+        case RoomActionTypes.GET_ROOM_SUCCESS:
+            return {...state, currentRoom: payload.room, currentTasks: payload.tasks}
+        case RoomActionTypes.GET_USER_SUCCESS:
             return {...state, user: payload}
-        case RoomActionTypes.GET_USERS_FAILURE:
+
+        case RoomActionTypes.GET_ROOM_FAIL:
+        case RoomActionTypes.GET_USER_FAIL:
             return state
         default:
             return state

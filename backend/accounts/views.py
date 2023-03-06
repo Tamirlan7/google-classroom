@@ -114,6 +114,7 @@ class GetCSRFToken(APIView):
     permission_classes = (permissions.AllowAny, )
 
     def get(self, request):
+        request.META["CSRF_COOKIE_USED"] = True
         return Response({'success': 'CSRF cookie set'})
 
 
