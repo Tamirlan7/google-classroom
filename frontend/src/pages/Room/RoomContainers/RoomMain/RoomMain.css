@@ -1,9 +1,20 @@
+.room-content {
+    display: flex;
+    margin-top: 24px;
+}
+
 .room-details__main {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     padding-top: 64px;
+}
+
+.room-content__main {
+    margin: -16px;
+    padding: 16px;
+    flex-grow: 1;
 }
 
 @media (max-width: 1041.98px) {

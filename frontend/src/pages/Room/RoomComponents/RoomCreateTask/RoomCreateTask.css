@@ -1,0 +1,88 @@
+/* ROOM CONTENT MAIN */
+
+.room-content__input {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    min-height: 72px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+}
+
+.room-content__input-button {
+    cursor: pointer;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, .549);
+}
+
+.input-button__avatar-img {
+    border-radius: 50%;
+    max-width: 75px;
+    max-height: 75px;
+    vertical-align: middle;
+}
+
+.input-button__avatar-block {
+    margin-left: 8px;
+    padding: 16px;
+}
+
+.input-button__text {
+    display: flex;  
+    align-items: center;
+    flex: 1 1 auto;
+    height: 100%;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.room-content__input-repeat {
+    display: flex;
+    margin-left: 16px;
+    padding: 0 12px;
+}
+
+.input-repeat__icon {
+    fill: #5f6368;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: 150ms;
+    border-radius: 50%;
+}
+
+.input-repeat__icon:hover {
+    background-color: #5f636816;
+}
+
+/* CREATE TASK */
+
+.room-details__create-task {
+    min-height: 72px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.create-task__form {
+    flex: 1 1 auto;
+    padding-top: 24px;
+    overflow-y: auto;
+}
+
+.create-task__form-course {
+    margin-bottom: 24px;
+    padding: 0 24px;
+}

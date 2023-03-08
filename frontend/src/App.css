@@ -20,3 +20,239 @@ a {
 input:is(:-webkit-autofill, :-webkit-autofill-focus) {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
+
+/* THEME COLOR */
+
+/* PINK */
+
+.color-pink {
+    color: rgb(184,6,114) !important;
+}
+
+.color-pink-hover {
+    transition: 150ms;
+}
+
+.color-pink-hover:hover {
+    color: rgb(184,6,114) !important;
+}
+
+.fill-pink {
+    fill: rgb(184,6,114) !important;
+}
+
+.bg-pink {
+    background: rgb(184,6,114) !important;
+}
+.bg-pink-hover {
+    transition: background 150ms ease;
+}
+
+.bg-pink-hover:hover {
+    background: rgba(184, 6, 113, 0.080) !important;
+}
+
+/* GREEN */
+
+.color-green {
+    color: rgb(19, 115, 51) !important;
+}
+
+.color-green-hover {
+    transition: 150ms;
+}
+
+.color-green-hover:hover {
+    color: rgb(19, 115, 51) !important;
+}
+
+.fill-green {
+    fill: rgb(19, 115, 51) !important;
+}
+
+.bg-green {
+    background: rgb(19, 115, 51) !important;
+}
+.bg-green-hover {
+    transition: background 150ms ease;
+}
+
+.bg-green-hover:hover {
+    background: rgb(19, 115, 51, 0.080) !important;
+}
+
+/* BLUE */
+
+.color-blue {
+    color: rgb(23,78,166) !important;
+}
+
+.color-blue-hover {
+    transition: 150ms;
+}
+
+.color-blue-hover:hover {
+    color: rgb(23,78,166) !important;
+}
+
+.fill-blue {
+    fill: rgb(23,78,166) !important;
+}
+
+.bg-blue {
+    background: rgb(23,78,166) !important;
+}
+.bg-blue-hover {
+    transition: background 150ms ease;
+}
+
+.bg-blue-hover:hover {
+    background: rgb(23,78,166, 0.080) !important;
+}
+
+/* ORANGE */
+
+.color-orange {
+    color: rgb(194,100,1) !important;
+}
+
+.color-orange-hover {
+    transition: 150ms;
+}
+
+.color-orange-hover:hover {
+    color: rgb(194,100,1) !important;
+}
+
+.fill-orange {
+    fill: rgb(194,100,1) !important;
+}
+
+.bg-orange {
+    background: rgb(194,100,1) !important;
+}
+.bg-orange-hover {
+    transition: background 150ms ease;
+}
+
+.bg-orange-hover:hover {
+    background: rgb(194,100,1, 0.080) !important;
+}
+
+/* PURPLE */
+
+.color-purple {
+    color: rgb(118,39,187) !important;
+}
+
+.color-purple-hover {
+    transition: 150ms;
+}
+
+.color-purple-hover:hover {
+    color: rgb(118,39,187) !important;
+}
+
+.fill-purple {
+    fill: rgb(118,39,187) !important;
+}
+
+.bg-purple {
+    background: rgb(118,39,187) !important;
+}
+.bg-purple-hover {
+    transition: background 150ms ease;
+}
+
+.bg-purple-hover:hover {
+    background: rgb(118,39,187, 0.080) !important;
+}
+
+/* GREY */
+
+.color-grey {
+    color: rgb(32,33,36) !important;
+}
+
+.color-grey-hover {
+    transition: 150ms;
+}
+
+.color-grey-hover:hover {
+    color: rgb(32,33,36) !important;
+}
+
+.fill-grey {
+    fill: rgb(32,33,36) !important;
+}
+
+.bg-grey {
+    background: rgb(32,33,36) !important;
+}
+.bg-grey-hover {
+    transition: background 150ms ease;
+}
+
+.bg-grey-hover:hover {
+    background: rgb(32,33,36, 0.080) !important;
+}
+
+/* TURQUOISE */
+
+.color-turquoise {
+    color: rgb(0,123,131) !important;
+}
+
+.color-turquoise-hover {
+    transition: 150ms;
+}
+
+.color-turquoise-hover:hover {
+    color: rgb(0,123,131) !important;
+}
+
+.fill-turquoise {
+    fill: rgb(0,123,131) !important;
+}
+
+.bg-turquoise {
+    background: rgb(0,123,131) !important;
+}
+.bg-turquoise-hover {
+    transition: background 150ms ease;
+}
+
+.bg-turquoise-hover:hover {
+    background: rgb(0,123,131, 0.080) !important;
+}
+
+/* CYAN */
+
+.color-cyan {
+    color: rgb(25,103,210) !important;
+}
+
+.color-cyan-hover {
+    transition: 150ms;
+}
+
+.color-cyan-hover:hover {
+    color: rgb(25,103,210) !important;
+}
+
+.fill-cyan {
+    fill: rgb(25,103,210) !important;
+}
+
+.bg-cyan {
+    background: rgb(25,103,210) !important;
+}
+.bg-cyan-hover {
+    transition: background 150ms ease;
+}
+
+.bg-cyan-hover:hover {
+    background: rgb(25,103,210, 0.080) !important;
+}
+
+/* THEME COLOR */

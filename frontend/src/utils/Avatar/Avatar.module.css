@@ -1,0 +1,13 @@
+.img {
+    border-radius: 50%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 17px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 32px;
+    font-weight: 700;
+}
