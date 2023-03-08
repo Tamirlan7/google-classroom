@@ -20,8 +20,9 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
         const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);
         const avatarPath = useTypedSelector(state => state.profile.profile.avatar)
         
+        const avatarIconRef = React.useRef<HTMLDivElement>(null)
         const settingsRef = React.useRef<HTMLDivElement>(null); 
-        useOutsideClick(settingsRef, closeSettings);
+        useOutsideClick(settingsRef, closeSettings, avatarIconRef);
 
         const addBoxShadow = useCallback(() => {
             if(window.scrollY > 64) 
@@ -30,6 +31,12 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
                 setIsScrolling(false);
         }, [])
 
+        function openSettings() {
+            if(isSettingsActive)
+                setIsSettingsActive(false)
+
+            else setIsSettingsActive(true)
+        }
 
         function closeSettings() {
             setIsSettingsActive(false)
@@ -76,7 +83,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
                     <div className="icons-search" role={"button"}><SearchIcon /></div>
                     <span><QuestionMark /></span>
                     <span><DottedMenu /></span>
-                    <div className="icons-avatar" onClick={() => setIsSettingsActive(prev => true)}>
+                    <div className="icons-avatar" ref={avatarIconRef} onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
                     </div>
                     {isSettingsActive && <Settings settingsRef={settingsRef} />}

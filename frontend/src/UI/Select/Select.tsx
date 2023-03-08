@@ -2,11 +2,16 @@ import React from "react";
 import cl from './Select.module.css'
 import { ReactComponent as DropDownIcon } from '../../assets/icons/drop-down.svg'
 import Avatar from "../../utils/Avatar/Avatar";
+import { useOutsideClick } from "../../hooks/useClick";
 
 
 
 const Select: React.FC = ({ }) => {
+    const [ isSelectActive, setIsSelectActive ] = React.useState<boolean>(false)
+
+
     const selectRef = React.useRef<HTMLDivElement>(null)
+    useOutsideClick(selectRef, disactiveSelect)
     const selectRect = selectRef.current?.getBoundingClientRect()
     const title = 'Название'
     const theme_color = 'pink'
@@ -18,6 +23,22 @@ const Select: React.FC = ({ }) => {
         height: 0, 
     })
 
+    React.useEffect(() => {
+        changeSelectState()
+    }, [])
+    
+    function activeSelect () {
+        if(isSelectActive)
+            setIsSelectActive(false)
+    
+        else setIsSelectActive(true)
+    }
+
+
+    function disactiveSelect() {
+        setIsSelectActive(false)
+    }
+
     function changeSelectState() {
         if(selectRef.current?.getBoundingClientRect) {
             const selectRect = selectRef.current.getBoundingClientRect()
@@ -27,13 +48,8 @@ const Select: React.FC = ({ }) => {
         }
     }
 
-    React.useEffect(() => {
-        changeSelectState()
-    }, [])
-    
-
     return (
-        <div className={cl['select']} ref={selectRef}>
+        <div className={cl['select']} ref={selectRef} onClick={activeSelect}>
             <div className={cl['select-inner']}>
                 <span className={cl['select-inner__value']}>
                     <span className={cl['value-inner']}>
@@ -42,7 +58,7 @@ const Select: React.FC = ({ }) => {
                     </span>
                 </span>
             </div>
-            <div 
+            {isSelectActive && <div 
                 className={cl['options-block']} 
                 style={{
                     position: "absolute",
@@ -67,7 +83,41 @@ const Select: React.FC = ({ }) => {
                     </div>
 
                 </span>
-            </div>
+                <span className={`${cl['default-option']}`}>
+
+                    <div className={cl['option-checkbox']}>
+                        <div className={`${cl['option-checkbox__img']} ${cl['option-checkbox__default-active']}`}></div>
+                    </div>
+
+                    <div className={cl['option-text']}>
+                        <div className={cl['option-avatar']}>
+                            <Avatar theme_color={theme_color} title={title} />
+                        </div>
+                        <div className={cl['option-text__text']}>
+                            <div className={cl['option-text__title']}>{title}</div>
+                            {section && <div className={cl['option-text__section']}>{section}</div>}
+                        </div>
+                    </div>
+
+                </span>
+                <span className={`${cl['default-option']}`}>
+
+                    <div className={cl['option-checkbox']}>
+                        <div className={`${cl['option-checkbox__img']} ${cl['option-checkbox__default-active']}`}></div>
+                    </div>
+
+                    <div className={cl['option-text']}>
+                        <div className={cl['option-avatar']}>
+                            <Avatar theme_color={theme_color} title={title} />
+                        </div>
+                        <div className={cl['option-text__text']}>
+                            <div className={cl['option-text__title']}>{title}</div>
+                            {section && <div className={cl['option-text__section']}>{section}</div>}
+                        </div>
+                    </div>
+
+                </span>
+            </div>}
         </div>
     )
 }

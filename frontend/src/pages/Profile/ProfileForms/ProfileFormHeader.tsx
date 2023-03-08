@@ -21,8 +21,16 @@ const ProfileFormHeader: React.FC<ProfileFormHeaderProps> = ({ title }) => {
         setIsSettingsActive(false)
     }
 
+    const avatarIconRef = React.useRef<HTMLDivElement>(null)
     const settingsRef = React.useRef<HTMLDivElement>(null)
-    useOutsideClick(settingsRef, closeSettings);
+    useOutsideClick(settingsRef, closeSettings, avatarIconRef);
+
+    function openSettings() {
+        if(isSettingsActive)
+            setIsSettingsActive(false)
+
+        else setIsSettingsActive(true)
+    }
 
     console.log('ProfileFormHeader render');
     function addBoxShadow() {
@@ -49,7 +57,7 @@ const ProfileFormHeader: React.FC<ProfileFormHeaderProps> = ({ title }) => {
                 <div className="icons">
                     <span><QuestionMark /></span>
                     <span><DottedMenu /></span>
-                    <div className="icons-avatar" onClick={() => setIsSettingsActive(true)}>
+                    <div className="icons-avatar" ref={avatarIconRef}onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatarPath}`} alt="avatar" />
                     </div>
                     {isSettingsActive && <Settings settingsRef={settingsRef} />}

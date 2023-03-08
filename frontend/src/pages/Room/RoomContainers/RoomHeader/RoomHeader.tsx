@@ -29,15 +29,19 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
 
 
     function openSettings() {
-        setIsSettingsActive(true)
+        if(isSettingsActive)
+            setIsSettingsActive(false)
+        
+        else setIsSettingsActive(true)
     }
 
     function closeSettings () {
         setIsSettingsActive(false)
     }
 
+    const avatarIconRef = React.useRef<HTMLDivElement>(null)
     const settingsRef = React.useRef<HTMLDivElement>(null)
-    useOutsideClick(settingsRef, closeSettings);
+    useOutsideClick(settingsRef, closeSettings, avatarIconRef);
 
     function closeNavbar() {
         setIsMenuOpen(false)
@@ -100,7 +104,7 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
                     <figure role={'button'} className="room-details__apps room-details__icon">
                         <DottedMenuIcon />
                     </figure>
-                    <span className="room-details__avatar" onClick={openSettings}>
+                    <span className="room-details__avatar" ref={avatarIconRef} onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatar}`} alt="avatar" />
                         {isSettingsActive && <Settings settingsRef={settingsRef} />}
                     </span>

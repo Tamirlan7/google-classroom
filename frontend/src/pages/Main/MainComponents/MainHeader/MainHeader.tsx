@@ -19,7 +19,10 @@ const MainHeader: React.FC = () => {
     const { avatar } = useTypedSelector(state => state.profile.profile)
 
     function openSettings() {
-        setIsSettingsActive(true)
+        if(isSettingsActive)
+            setIsSettingsActive(false)
+
+        else setIsSettingsActive(true)
     }
 
     function closeSettings() {
@@ -52,6 +55,8 @@ const MainHeader: React.FC = () => {
     document.addEventListener('scroll', addBoxShadow)
 
 
+    const avatarIconRef = React.useRef<HTMLDivElement>(null)
+
     const navbarRef = React.useRef<HTMLMenuElement>(null)
     useOutsideClick(navbarRef, closeNavbar);
 
@@ -59,7 +64,7 @@ const MainHeader: React.FC = () => {
     useOutsideClick(addCourseRef, closeAddCourse);
 
     const settingsRef = React.useRef<HTMLDivElement>(null)
-    useOutsideClick(settingsRef, closeSettings);
+    useOutsideClick(settingsRef, closeSettings, avatarIconRef);
 
     return (
         <header className={isScrolling ? "main-header header-shadow" : "main-header"}>
@@ -93,7 +98,7 @@ const MainHeader: React.FC = () => {
                     <DottedMenuIcon />
                 </div>
                 <div className="main-header__avatar">
-                    <div className="icons-avatar" onClick={openSettings}>
+                    <div className="icons-avatar" ref={avatarIconRef} onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatar}`} alt="avatar" />
                     </div>
                     {isSettingsActive && <Settings settingsRef={settingsRef} />}
