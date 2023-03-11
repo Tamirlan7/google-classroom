@@ -10,15 +10,33 @@ export function useOutsideClick(ref: React.RefObject<HTMLElement>, callback: () 
     React.useEffect(() => {
         
       function handleClickOutside(event: Event ) {
-        if (ref && ref.current && !ref.current.contains(event.target as typeof ref.current)) {
           const target = event.target as HTMLElement
 
-          if (additionalElement && target.isEqualNode(additionalElement.current) || additionalElement?.current?.contains(target)) 
-            return
+        // false means not to invoke callback
+
+          // if
+          return additionalElement && target.isEqualNode(additionalElement.current) || additionalElement?.current?.contains(target)
+          ? false
+
+          // else if
+
+          : ref && ref.current && !ref.current.contains(event.target as typeof ref.current) 
+          ? callback()
+
+          // else
+          : false
+          // console.log('additionalElement')
+          // console.log(additionalElement)
+          // console.log('ref')
+          // console.log(ref)
+
+          // if (additionalElement && target.isEqualNode(additionalElement.current) || additionalElement?.current?.contains(target)) 
+          //   return
           
-          else callback()
+          // else if (ref && ref.current && ref.current.contains(event.target as HTMLElement)) return
+
+          // else callback()
         } 
-      }
 
       document.addEventListener("mousedown", handleClickOutside);
 

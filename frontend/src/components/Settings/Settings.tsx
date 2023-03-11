@@ -23,7 +23,7 @@ const Settings: React.FC<SettingsProps> = ({ settingsRef, logout }) => {
     }
 
     return (
-        <div className="settings" ref={settingsRef}>
+        <div className={'settings'} ref={settingsRef}>
             <div className="settings__manage">
                 <div className="settings-manage__info">
                     <div className="settings__avatar">

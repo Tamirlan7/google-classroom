@@ -1,4 +1,4 @@
-/* ROOM CONTENT MAIN */
+/* ROOM CONTENT INPUT */
 
 .room-content__input {
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
@@ -86,3 +86,134 @@
     margin-bottom: 24px;
     padding: 0 24px;
 }
+
+.create-task__form-course__text {
+    margin-bottom: 8px;
+}
+
+.create-task__form-course__selects {
+    display: flex;
+}
+
+.create-task__users-select {
+    margin-left: 16px;
+}
+
+/* textarea */
+
+.create-task__form-text {
+    margin-bottom: 24px;
+    padding: 0 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.move-textarea__block {
+    position: relative;
+    padding: 22px 16px 10px;
+    background: #f8f9fa;
+    border-radius: 4px 4px 0 0;
+}
+
+.create-task__textarea {
+    resize: none;
+    background: transparent;
+    z-index: 55;
+    min-height: 100px;
+    margin-top: 2px;
+    width: 100%;
+    position: relative;
+    overflow-wrap: break-word;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    color: #000000DE;
+    overflow: hidden;
+    height: auto;
+}
+
+.move-textarea__label {
+    color: #5f6368;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    padding-left: 16px;
+    transition: all .3s cubic-bezier(0.4,0,0.2,1);
+    font-size: 16px;
+    transform: translateX(0);
+}  
+
+.move-textarea:focus ~ .move-textarea__label,
+.move-textarea:not(:placeholder-shown) ~ .move-textarea__label {
+    transform: scale(0.75) translateX(-115px) translateY(-27px);
+}
+
+/* textarea */
+
+/* underline */
+
+.create-task__textarea-underline {
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    background: #80868b;
+    right: 24px;
+    left: 24px;
+}
+
+/* underline animations */
+
+.create-task__textarea-underline__focused {
+    height: 2px;
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    right: 24px;
+    left: 24px;
+}
+
+.create-task__textarea-underline__focused-enter-active {
+    animation: underline-active .3s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.create-task__textarea-underline__focused-exit-active {
+    animation: underline-disactive .3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+
+@keyframes underline-active {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scaleX(1)
+    }
+}
+
+@keyframes underline-disactive {
+    0% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scaleX(1);
+    }
+}
+
+/* underline animations */
+
+/* underline */
+
+/* modify textarea */
+
+.create-task__modify-textarea {
+    background-color: #f1f3f4;
+}
+
+/* modify textarea */

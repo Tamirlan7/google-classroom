@@ -16,6 +16,7 @@ interface ProfileHeaderProps extends React.PropsWithChildren {
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ children }) => {
         // state for header box-shadow 
         const [isScrolling, setIsScrolling] = useState<boolean>(false);
+        
         const [inputFocused, setInputFocused] = useState<boolean>(false);
         const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);
         const avatarPath = useTypedSelector(state => state.profile.profile.avatar)

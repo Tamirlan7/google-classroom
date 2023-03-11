@@ -12,7 +12,7 @@ import { useTypedSelector } from "../../../../hooks/redux";
 
 interface RoomHeaderProps {
     title: string
-    section: string
+    section?: string
     theme_color: string
     code: string
 }
@@ -26,7 +26,6 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
 
     const navbarRef = React.useRef<HTMLMenuElement>(null)
     useOutsideClick(navbarRef, closeNavbar);
-
 
     function openSettings() {
         if(isSettingsActive)
@@ -61,13 +60,13 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
     ]
 
     React.useEffect(() => {
+        document.addEventListener('scroll', addBoxShadow)
 
         return () => {
             document.removeEventListener('scroll', addBoxShadow)
         }
     }) 
 
-    document.addEventListener('scroll', addBoxShadow)
 
     return (
         <header className={isScrolling ? "room-details__header header-shadow" : "room-details__header"}>
@@ -106,8 +105,8 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
                     </figure>
                     <span className="room-details__avatar" ref={avatarIconRef} onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatar}`} alt="avatar" />
-                        {isSettingsActive && <Settings settingsRef={settingsRef} />}
                     </span>
+                    {isSettingsActive && <Settings settingsRef={settingsRef}/>}
                 </div>
             </div>
             <div className="room-details__nav-responsible-block">

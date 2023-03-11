@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.439ed33b.css",
-    "main.js": "/static/js/main.16591336.js",
+    "main.css": "/static/css/main.68bcd7e7.css",
+    "main.js": "/static/js/main.c43371a3.js",
     "static/media/laptop-coffee.jpg": "/static/media/laptop-coffee.14f6e051f0f702819c1e.jpg",
+    "static/media/bookclub.jpg": "/static/media/bookclub.a27c271d7c5e50bf5772.jpg",
     "static/media/huge-user.png": "/static/media/huge-user.bd00bc1c435fc7358d9a.png",
     "static/media/question-mark.svg": "/static/media/question-mark.ad1b46c7224e8d4726c0cf9732b4fd23.svg",
+    "static/media/checkbox.svg": "/static/media/checkbox.dd0bb3ae9fd07c0591e5.svg",
     "static/media/google-icon.svg": "/static/media/google-icon.a43fa784db2c46d63124.svg",
     "static/media/logout.svg": "/static/media/logout.713bbca6800d646f0f226c760a5dbc17.svg",
     "static/media/settings.svg": "/static/media/settings.644a66c452ba25d9d9393e8f22ba1eb5.svg",
@@ -24,15 +26,18 @@
     "static/media/calendar.svg": "/static/media/calendar.21cf076cfaad039cbd6b59cd2ead00d8.svg",
     "static/media/close.svg": "/static/media/close.959b5044fca164927d6f9df65930a237.svg",
     "static/media/folder.svg": "/static/media/folder.9f55193c4cdac3831f9a8c7c46545d41.svg",
+    "static/media/info-active.svg": "/static/media/info-active.b4693218ac5f692cb0951cfc86c0900e.svg",
+    "static/media/in-full-screen.svg": "/static/media/in-full-screen.3161c0db43b6d0f3f092735c37c6bfb4.svg",
     "static/media/statistic.svg": "/static/media/statistic.0cceb0a1b26a650a4cea4dddfac99729.svg",
     "static/media/home.svg": "/static/media/home.92d107b23a05b09a787562cb462e7f8c.svg",
     "static/media/menu.svg": "/static/media/menu.1ccef8922de6c8b2020b184cebb73e29.svg",
     "static/media/add.svg": "/static/media/add.82874927db524c63372dc643726b4f73.svg",
-    "main.439ed33b.css.map": "/static/css/main.439ed33b.css.map",
-    "main.16591336.js.map": "/static/js/main.16591336.js.map"
+    "static/media/drop-down.svg": "/static/media/drop-down.faa8c1c8a81eac80d41cd1d39ad9011e.svg",
+    "main.68bcd7e7.css.map": "/static/css/main.68bcd7e7.css.map",
+    "main.c43371a3.js.map": "/static/js/main.c43371a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.439ed33b.css",
-    "static/js/main.16591336.js"
+    "static/css/main.68bcd7e7.css",
+    "static/js/main.c43371a3.js"
   ]
 }

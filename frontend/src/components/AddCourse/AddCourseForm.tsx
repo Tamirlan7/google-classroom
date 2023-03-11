@@ -129,7 +129,7 @@ const AddCourseForm: React.FC<AddCourseProps> = ({ isConfirmedModal, setIsConfir
                     
                 </div>
                 <div className="confirm-modal__footer">
-                    <button className="confirm-button confirm-button__back" onClick={closeAddCourseModal}>Отмена</button>
+                    <button className="confirm-button confirm-button__back" onClick={closeConfirmedModal}>Отмена</button>
                     <button 
                         className={isCheckboxChecked ? "confirm-button confirm-button__continue" : "confirm-button confirm-button__disabled"} 
                         disabled={isCheckboxChecked ? false : true}

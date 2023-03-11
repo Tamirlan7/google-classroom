@@ -38,9 +38,9 @@ export interface IRoom {
         avatar: string
     }
     title: string
-    section: string
-    subject: string
-    audience: string
+    section?: string
+    subject?: string
+    audience?: string
     created_at: string
     updated_at: string
     code: string
@@ -62,4 +62,12 @@ export interface ITask {
     link: string
     created_at: string
     updated_at: string
+}
+
+export interface IOption {
+    id: number
+    title: string
+    theme_color: string
+    section?: string
+    selected?: boolean
 }

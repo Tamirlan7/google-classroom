@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { ReactComponent as MenuIcon } from '../../../../assets/icons/menu.svg';
 import { ReactComponent as DottedMenuIcon } from '../../../../assets/icons/dotted-menu.svg';
 import { ReactComponent as AddIcon } from '../../../../assets/icons/add.svg';
@@ -33,6 +33,13 @@ const MainHeader: React.FC = () => {
         setIsMenuOpen(false)
     }
 
+    function openAddCourse() {
+        if (isAddCourse)
+            setIsAddCourse(false)
+        
+        else setIsAddCourse(true)
+    }
+
     function closeAddCourse() {
         setIsAddCourse(false)
     }
@@ -55,16 +62,18 @@ const MainHeader: React.FC = () => {
     document.addEventListener('scroll', addBoxShadow)
 
 
-    const avatarIconRef = React.useRef<HTMLDivElement>(null)
-
+    
     const navbarRef = React.useRef<HTMLMenuElement>(null)
     useOutsideClick(navbarRef, closeNavbar);
 
+    const addIconRef = React.useRef<HTMLDivElement>(null)
     const addCourseRef = React.useRef<HTMLUListElement>(null)
-    useOutsideClick(addCourseRef, closeAddCourse);
-
+    useOutsideClick(addCourseRef, closeAddCourse, addIconRef);
+    
+    const avatarIconRef = React.useRef<HTMLDivElement>(null)
     const settingsRef = React.useRef<HTMLDivElement>(null)
     useOutsideClick(settingsRef, closeSettings, avatarIconRef);
+
 
     return (
         <header className={isScrolling ? "main-header header-shadow" : "main-header"}>
@@ -89,7 +98,8 @@ const MainHeader: React.FC = () => {
                 <div 
                     role={'button'} 
                     className="main-header__create"
-                    onClick={() => setIsAddCourse(true)}
+                    onClick={openAddCourse}
+                    ref={addIconRef}
                 >
                     <AddIcon />
                 </div>
@@ -101,7 +111,7 @@ const MainHeader: React.FC = () => {
                     <div className="icons-avatar" ref={avatarIconRef} onClick={openSettings}>
                         <img src={`${process.env.REACT_APP_API_URL}${avatar}`} alt="avatar" />
                     </div>
-                    {isSettingsActive && <Settings settingsRef={settingsRef} />}
+                    {isSettingsActive && <Settings settingsRef={settingsRef} />}    
                 </div>
             </div>
         </header>
@@ -111,12 +121,16 @@ const MainHeader: React.FC = () => {
 function AddCourse({ addCourseRef }: {addCourseRef: React.Ref<HTMLUListElement>}) {
     const [isAddCourseForm, setIsAddCourseForm] = React.useState<boolean>(false)
 
+    function openIsAddCourseForm() {
+        setIsAddCourseForm(true)
+    }
+
     return (
         <ul ref={addCourseRef} className='add-course__list'>
             <li className="add-course__list-item">
                 Присоединиться
             </li>
-            <li className="add-course__list-item" onClick={() => setIsAddCourseForm(true)}>
+            <li className="add-course__list-item" onClick={openIsAddCourseForm}>
                 Создать курс
             </li>
             <AddCourseForm setIsConfirmedModal={setIsAddCourseForm} isConfirmedModal={isAddCourseForm} />
