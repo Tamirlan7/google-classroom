@@ -130,7 +130,17 @@
     color: #000000DE;
     overflow: hidden;
     height: auto;
+    max-width: 700px;
 }
+
+.create-task__textarea > ul,
+.create-task__textarea > * > ul {
+    width: 100%;
+    list-style: disc;
+    margin: 13px 0;
+    padding-left: 40px;
+}
+
 
 .move-textarea__label {
     color: #5f6368;
@@ -142,10 +152,10 @@
     transition: all .3s cubic-bezier(0.4,0,0.2,1);
     font-size: 16px;
     transform: translateX(0);
+    transition: .1s;
 }  
 
-.move-textarea:focus ~ .move-textarea__label,
-.move-textarea:not(:placeholder-shown) ~ .move-textarea__label {
+.move-textarea__label-focused {
     transform: scale(0.75) translateX(-115px) translateY(-27px);
 }
 
@@ -213,7 +223,45 @@
 /* modify textarea */
 
 .create-task__modify-textarea {
-    background-color: #f1f3f4;
+    background-color: #f8f9fa;
+    display: flex;
 }
 
 /* modify textarea */
+
+
+
+
+
+
+/* submit or cancel block */
+
+.create-task__submit-block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 8px 8px 24px;
+}
+
+.create-task__links {
+    margin: 0 16px 16px 0;
+    flex-grow: 1111;
+}
+
+.create-task__submit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 16px 16px 0;
+}
+
+.create-task__links-inner {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1;
+}
+
+/* submit or cancel block */

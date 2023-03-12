@@ -1,14 +1,25 @@
 import React from "react";
 import './RoomCreateTask.css'
 import { ReactComponent as RepeatIcon } from '../../../../assets/icons/repeat.svg'
+import { ReactComponent as BoldIcon } from '../../../../assets/icons/bold.svg'
+import { ReactComponent as ItalicIcon } from '../../../../assets/icons/italic.svg'
+import { ReactComponent as UnderlineIcon } from '../../../../assets/icons/underline.svg'
+import { ReactComponent as UnorderedListIcon } from '../../../../assets/icons/unordered-list.svg'
+import { ReactComponent as RemoveFormatIcon } from '../../../../assets/icons/remove-format.svg'
 import Select from "../../../../UI/Select/Select";
 import { IOption } from "../../../../types/types";
 import { CSSTransition } from 'react-transition-group'
+import ContentEditable from "react-contenteditable";
+import ModifyButton from "../../../../UI/ModifyButton/ModifyButton";
+
+
 
 const RoomCreateTask: React.FC = () => {
     const [isInput, setIsInput] = React.useState<boolean>(true);
     const [isTextareaActive, setIsTextareaActive] = React.useState<boolean>(false)
     const [text, setText] = React.useState<string>('')
+
+    const [isFormattingRemoved, setIsFormattingRemoved] = React.useState<boolean>(false)
 
     const theme_color = 'pink'
     const avatar = 'none'
@@ -25,6 +36,10 @@ const RoomCreateTask: React.FC = () => {
         title: 'Все учащиеся',
     }]
 
+    // USE-REF
+
+    const textareaRef = React.useRef<HTMLDivElement | string>('')
+
     // FUNCTIONS
 
     function activeTextarea() {
@@ -35,8 +50,8 @@ const RoomCreateTask: React.FC = () => {
         setIsTextareaActive(false)
     }
 
-    function changeTextValue(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        setText(e.target.value)
+    function changeTextValue(e: any) {
+        textareaRef.current = e.target.value
     }
 
     // if ( isInput ) 
@@ -86,17 +101,26 @@ const RoomCreateTask: React.FC = () => {
                 <div className="create-task__form-text">
                     
                     <div className="create-task__textarea-block move-textarea__block">
-                        <textarea 
+                        <ContentEditable 
+                            html={textareaRef.current as string}
+                            tagName={'div'}
+                            disabled={false}
                             className="create-task__textarea move-textarea" 
-                            placeholder=" "
                             onFocus={activeTextarea}
                             onBlur={disactiveTextarea}
-                            onChange={changeTextValue}
-                            value={text}
-                        ></textarea>
-                        <label className={isTextareaActive ? `color-${theme_color} move-textarea__label` : "move-textarea__label"}><span>Обратитесь к курсу</span></label>
+                            onChange={(e) => changeTextValue(e)}
+                        >
+                        </ContentEditable>
+                        <label className={isTextareaActive 
+                            ? `color-${theme_color} move-textarea__label move-textarea__label-focused` 
+                            : textareaRef.current
+                            ? `move-textarea__label move-textarea__label-focused`
+                            : "move-textarea__label"
+                            }><span>Обратитесь к курсу</span></label>
                         
                     </div>
+                    
+
 
                     <div className="create-task__textarea-underline"></div>
                     <CSSTransition 
@@ -109,14 +133,61 @@ const RoomCreateTask: React.FC = () => {
                         <div className={`create-task__textarea-underline__focused bg-${theme_color}`}></div>
                     </CSSTransition>
 
-                    {/* <div className="create-task__modify-textarea">
+                    <div className="create-task__modify-textarea">
+                        
+                            <ModifyButton 
+                                cmd="bold"
+                                isFormattingRemoved={isFormattingRemoved}
+                                setIsFormattingRemoved={setIsFormattingRemoved}
+                            >
+                                <BoldIcon />
+                            </ModifyButton>
 
-                    </div> */}
+                            <ModifyButton 
+                                cmd={'italic'}
+                                isFormattingRemoved={isFormattingRemoved}
+                                setIsFormattingRemoved={setIsFormattingRemoved}
+                            >
+                                <ItalicIcon />
+                            </ModifyButton>
+
+                            <ModifyButton 
+                                cmd={'underline'}
+                                isFormattingRemoved={isFormattingRemoved}
+                                setIsFormattingRemoved={setIsFormattingRemoved}
+                            >
+                                <UnderlineIcon />
+                            </ModifyButton>
+
+                            <ModifyButton 
+                                cmd={'insertUnorderedList'}
+                                isFormattingRemoved={isFormattingRemoved}
+                                setIsFormattingRemoved={setIsFormattingRemoved}
+                            >
+                                <UnorderedListIcon />    
+                            </ModifyButton>
+
+                            <ModifyButton 
+                                cmd={'removeFormat'}
+                                isFormattingRemoved={isFormattingRemoved}
+                                setIsFormattingRemoved={setIsFormattingRemoved}
+                            >
+                                <RemoveFormatIcon />    
+                            </ModifyButton>
+
+                    </div>
 
                 </div>
             </form>
             <div className="create-task__submit-block">
+                <div className="create-task__links">
+                    <div className="create-task__links-inner">
 
+                    </div>
+                </div>
+                <div className="create-task__submit">
+
+                </div>
             </div>
         </div>
     )

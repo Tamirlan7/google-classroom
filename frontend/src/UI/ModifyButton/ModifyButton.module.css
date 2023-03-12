@@ -1,0 +1,32 @@
+.modify-button {
+    border: none;
+    cursor: pointer;
+    height: 34px;
+    width: 36px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    transition: .1s;
+}
+
+.modify-button__clicked {
+    background-color: #e0e0e0;
+    border-radius: 2px;
+}
+
+.modify-button:hover {
+    fill: rgba(0, 0, 0);
+    stroke: rgba(0, 0, 0);
+}
+
+.modify-button {
+    fill: rgba(0, 0, 0, .54);
+    stroke: rgba(0, 0, 0, .54);
+}
+
+.modify-button > svg {
+    fill: inherit;
+    stroke: inherit;
+}

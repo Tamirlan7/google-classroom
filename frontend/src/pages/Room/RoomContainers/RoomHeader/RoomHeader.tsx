@@ -86,7 +86,7 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
                 </div>
                 <ul className="room-details__nav">
                     {navLinks.map(link => (
-                        <li className="room-details__nav-item">
+                        <li key={link.text} className="room-details__nav-item">
                             <Link 
                             to={link.link} 
                             className={link.link === currentUrlPathname 
@@ -112,7 +112,7 @@ const RoomHeader: React.FC<RoomHeaderProps> = React.memo(({ code, theme_color, t
             <div className="room-details__nav-responsible-block">
                 <ul className="room-details__nav-responsible">
                     {navLinks.map(link => (
-                        <li className="room-details__nav-item">
+                        <li key={link.text} className="room-details__nav-item">
                             <Link 
                             to={link.link} 
                             className={link.link === currentUrlPathname 

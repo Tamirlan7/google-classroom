@@ -1,7 +1,7 @@
 import { AuthActionTypes, AuthenticatedFail, AuthenticatedSuccess, LoginFail, LoginSuccess, LogoutFail, LogoutSuccess } from "./types";
 import { Dispatch } from "react";
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import { RegisterSuccess, RegisterFail } from './types';
 
 
