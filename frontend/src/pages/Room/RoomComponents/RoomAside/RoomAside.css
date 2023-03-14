@@ -86,3 +86,9 @@
     cursor: pointer;
     padding: 5px 5px;
 }
+
+@media (max-width: 780.98px) {
+    .room-content__aside {
+        display: none;
+    }
+}

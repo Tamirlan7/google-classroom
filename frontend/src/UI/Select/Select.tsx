@@ -55,16 +55,22 @@ const Select: React.FC<SelectProps> = ({ className, defaultOption, options, setO
     // the position of an dropdown element
 
     const selectStyle = React.useMemo(() => {
+
+        /* this obj will be returned later */
+
         let obj: {top: number, left: number, height: number} = {
             top: 0,
             left: 0,
             height: 0, 
         }
         
+
         if(selectRef?.current?.getBoundingClientRect) {
             const selectRect = selectRef?.current.getBoundingClientRect()
+            const bodyRect = document.body.getBoundingClientRect()
+
             obj = {
-                top: selectRect.top,
+                top: selectRect.top - bodyRect.top,
                 left: selectRect.left,
                 height: selectRect.height
             }
@@ -130,7 +136,10 @@ const Select: React.FC<SelectProps> = ({ className, defaultOption, options, setO
             className={cl['options-block']} 
             style={{
                 position: "absolute",
-                top: selectStyle.top + selectStyle.height,
+
+                top: 
+                (selectStyle.top + selectStyle.height),
+
                 left: selectStyle.left,
             }}
         >

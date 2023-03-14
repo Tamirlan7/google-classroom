@@ -17,7 +17,19 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
+
+
+
 /* THEME COLOR */
+
+
+
+
+
+
+
+
+
 
 /* PINK */
 
@@ -48,6 +60,23 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
     background: rgba(184, 6, 113, 0.080) !important;
 }
 
+.bg-pink-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-pink-hover-light:hover {
+    background: rgb(182, 54, 131) !important;
+}
+
+
+
+
+
+
+
+
+
+
 /* GREEN */
 
 .color-green {
@@ -69,6 +98,7 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-green {
     background: rgb(19, 115, 51) !important;
 }
+
 .bg-green-hover {
     transition: background 150ms ease;
 }
@@ -76,6 +106,22 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-green-hover:hover {
     background: rgb(19, 115, 51, 0.080) !important;
 }
+
+.bg-green-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-green-hover-light:hover {
+    background: rgb(21, 163, 68) !important;
+}
+
+
+
+
+
+
+
+
 
 /* BLUE */
 
@@ -98,6 +144,7 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-blue {
     background: rgb(23,78,166) !important;
 }
+
 .bg-blue-hover {
     transition: background 150ms ease;
 }
@@ -105,6 +152,24 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-blue-hover:hover {
     background: rgb(23,78,166, 0.080) !important;
 }
+
+.bg-blue-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-blue-hover-light:hover {
+    background: rgb(25, 126, 183) !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ORANGE */
 
@@ -127,6 +192,7 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-orange {
     background: rgb(194,100,1) !important;
 }
+
 .bg-orange-hover {
     transition: background 150ms ease;
 }
@@ -134,6 +200,21 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-orange-hover:hover {
     background: rgb(194,100,1, 0.080) !important;
 }
+
+.bg-orange-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-orange-hover-light:hover {
+    background: rgb(196, 148, 18) !important;
+}
+
+
+
+
+
+
+
 
 /* PURPLE */
 
@@ -156,6 +237,7 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-purple {
     background: rgb(118,39,187) !important;
 }
+
 .bg-purple-hover {
     transition: background 150ms ease;
 }
@@ -163,6 +245,21 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-purple-hover:hover {
     background: rgb(118,39,187, 0.080) !important;
 }
+
+.bg-purple-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-purple-hover-light:hover {
+    background: rgb(120, 87, 204) !important;
+}
+
+
+
+
+
+
+
 
 /* GREY */
 
@@ -183,8 +280,9 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 }
 
 .bg-grey {
-    background: rgb(32,33,36) !important;
+    background: rgb(32, 33, 36) !important;
 }
+
 .bg-grey-hover {
     transition: background 150ms ease;
 }
@@ -192,6 +290,23 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-grey-hover:hover {
     background: rgb(32,33,36, 0.080) !important;
 }
+
+.bg-grey-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-grey-hover-light:hover {
+    background: rgb(34, 81, 53) !important;
+}
+
+
+
+
+
+
+
+
+
 
 /* TURQUOISE */
 
@@ -214,6 +329,7 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-turquoise {
     background: rgb(0,123,131) !important;
 }
+
 .bg-turquoise-hover {
     transition: background 150ms ease;
 }
@@ -221,6 +337,24 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-turquoise-hover:hover {
     background: rgb(0,123,131, 0.080) !important;
 }
+
+.bg-turquoise-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-turquoise-hover-light:hover {
+    background: rgb(2, 171, 148) !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* CYAN */
 
@@ -243,6 +377,7 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-cyan {
     background: rgb(25,103,210) !important;
 }
+
 .bg-cyan-hover {
     transition: background 150ms ease;
 }
@@ -250,5 +385,15 @@ input:is(:-webkit-autofill, :-webkit-autofill-focus) {
 .bg-cyan-hover:hover {
     background: rgb(25,103,210, 0.080) !important;
 }
+
+.bg-cyan-hover-light {
+    transition: background 150ms ease;
+}
+
+.bg-cyan-hover-light:hover {
+    background: rgb(27, 151, 237) !important;
+}
+
+
 
 /* THEME COLOR */

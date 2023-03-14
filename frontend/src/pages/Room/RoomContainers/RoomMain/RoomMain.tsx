@@ -1,7 +1,8 @@
 import React from "react";
-import RoomContent from "../../RoomComponents/RoomContent/RoomContent";
+import RoomAside from "../../RoomComponents/RoomAside/RoomAside";
 import RoomCover from "../../RoomComponents/RoomCover/RoomCover";
 import RoomCreateTask from "../../RoomComponents/RoomCreateTask/RoomCreateTask";
+import RoomTasks from "../../RoomComponents/RoomTasks/RoomTasks";
 import './RoomMain.css'
 
 
@@ -15,9 +16,10 @@ const RoomMain: React.FC<RoomMainProps> = ({  }) => {
         <main className="room-details__main">
             <RoomCover />
             <div className="room-content">
-                <RoomContent />
+                <RoomAside />
                 <div className="room-content__main">
                     <RoomCreateTask />
+                    <RoomTasks />
                 </div>
             </div>
         </main>

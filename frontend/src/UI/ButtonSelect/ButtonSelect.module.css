@@ -1,0 +1,127 @@
+.button-select {
+    display: flex;
+}
+
+/* button */
+
+.buttons-select__button {
+    border-radius: 4px 0 0 4px;
+    margin-right: 1px;
+    color: #fff;
+    transition: .1s;
+    cursor: pointer;
+    line-height: 36px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    transition: .1s;
+}
+
+
+.button-select__text {
+    padding: 0 24px;
+    z-index: 50;
+    position: relative;
+}
+
+/* button */
+
+
+
+
+/* select */
+
+.buttons-select__select {
+    display: flex;
+    justify-content: center;
+    min-width: 34px;
+    fill: #fff;
+    line-height: 36px;
+    border-radius: 0 4px 4px 0;
+    height: 36px;
+    cursor: pointer;
+    transition: .1s;
+    position: relative;
+}   
+
+.button-select__icon {
+    padding: 0 4px;
+    -webkit-box-align: center;
+    display: flex;
+    align-items: center;
+}
+
+/* select */
+
+
+
+
+
+/* drop down */
+
+.button-select__drop-down {
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    max-width: 280px;
+    background: #fff;
+    z-index: 2000;
+    padding: 8px 0;
+}
+
+.drop-down__buttons {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    min-width: 112px;
+    overflow: hidden;
+    color: #222;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.drop-down__buttons:hover {
+    background: rgba(0, 0, 0, 0.051);
+}
+
+.drop-down__buttons-text {
+    width: 100%;
+    padding: 0 16px;
+}
+
+
+/* animation */
+
+.button-select__drop-down-enter-active {
+    animation: drop-down-show 200ms ease forwards;
+}
+
+.button-select__drop-down-exit-active {
+    animation: drop-down-hide 200ms ease;
+}
+
+@keyframes drop-down-show {
+    0% {
+        opacity: 0;
+        transform: translateX(100px) translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes drop-down-hide {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* animation */
+
+/* drop down */

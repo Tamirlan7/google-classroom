@@ -1,11 +1,11 @@
 import React from "react";
-import './RoomContent.css'
+import './RoomAside.css'
 import { ReactComponent as ThreeDotsIcon } from '../../../../assets/icons/three-dots.svg'
 import { ReactComponent as InFullScreenIcon } from '../../../../assets/icons/in-full-screen.svg'
 import { ReactComponent as RepeatIcon } from '../../../../assets/icons/repeat.svg'
 
 
-const RoomContent: React.FC = () => {
+const RoomAside: React.FC = () => {
     const theme_color = 'pink'
     const code = '5426vs5'
 
@@ -39,4 +39,4 @@ const RoomContent: React.FC = () => {
 }
 
 
-export default RoomContent
+export default RoomAside

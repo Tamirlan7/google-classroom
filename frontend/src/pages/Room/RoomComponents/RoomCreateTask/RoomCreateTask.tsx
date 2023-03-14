@@ -1,28 +1,41 @@
 import React from "react";
 import './RoomCreateTask.css'
 import { ReactComponent as RepeatIcon } from '../../../../assets/icons/repeat.svg'
-import { ReactComponent as BoldIcon } from '../../../../assets/icons/bold.svg'
-import { ReactComponent as ItalicIcon } from '../../../../assets/icons/italic.svg'
-import { ReactComponent as UnderlineIcon } from '../../../../assets/icons/underline.svg'
-import { ReactComponent as UnorderedListIcon } from '../../../../assets/icons/unordered-list.svg'
-import { ReactComponent as RemoveFormatIcon } from '../../../../assets/icons/remove-format.svg'
 import Select from "../../../../UI/Select/Select";
 import { IOption } from "../../../../types/types";
-import { CSSTransition } from 'react-transition-group'
-import ContentEditable from "react-contenteditable";
-import ModifyButton from "../../../../UI/ModifyButton/ModifyButton";
+import ImportIcons from "../../../../components/ImportIcons/ImportIcons";
+import ButtonSelect from "../../../../UI/ButtonSelect/ButtonSelect";
+import Textarea from "../../../../UI/Textarea/Textarea";
 
 
 
 const RoomCreateTask: React.FC = () => {
-    const [isInput, setIsInput] = React.useState<boolean>(true);
-    const [isTextareaActive, setIsTextareaActive] = React.useState<boolean>(false)
+    const [isCreateForm, setIsCreateForm] = React.useState<boolean>(false);
     const [text, setText] = React.useState<string>('')
-
-    const [isFormattingRemoved, setIsFormattingRemoved] = React.useState<boolean>(false)
-
     const theme_color = 'pink'
     const avatar = 'none'
+
+
+
+
+    /*
+        | ---- FUNCTIONS  ---- |
+    */
+
+    function openCreateForm() {
+        setIsCreateForm(true);
+    }
+
+    function closeCreateForm() {
+        setIsCreateForm(false)
+    }
+
+
+
+
+    /*
+        | ---- UI ARRAYS  ---- |
+    */
 
     const [options, setOptions] = React.useState<IOption[]>([
         {id: 1, theme_color: 'pink', title: 'Bamb'},
@@ -36,56 +49,71 @@ const RoomCreateTask: React.FC = () => {
         title: 'Все учащиеся',
     }]
 
-    // USE-REF
 
-    const textareaRef = React.useRef<HTMLDivElement | string>('')
 
-    // FUNCTIONS
 
-    function activeTextarea() {
-        setIsTextareaActive(true)
-    }
+    /* 
+            INPUT   ||
+                    \/
+    */
 
-    function disactiveTextarea() {
-        setIsTextareaActive(false)
-    }
 
-    function changeTextValue(e: any) {
-        textareaRef.current = e.target.value
-    }
+    if ( !isCreateForm ) 
+        return (
+            <>
+            <div className="room-content__input">
 
-    // if ( isInput ) 
-    //     return (
-    //         <>
-    //         <div className="room-content__input">
-    //             <div className={`room-content__input-button color-${color_theme}-hover`}>
-    //                 <div className="input-button__avatar-block">
-    //                     <div>
-    //                         <img className="input-button__avatar-img" src={avatar} alt="avatar" />
-    //                     </div>
-    //                 </div>
-    //                 <div className={`input-button__text`}>
-    //                     Обратитесь к курсу
-    //                 </div>
-    //             </div>
-    //             <div className="room-content__input-repeat">
-    //                 <figure className="input-repeat__icon">
-    //                     <RepeatIcon />
-    //                 </figure>
-    //             </div>
-    //         </div>
-    //         <div className="room-content__tasks"></div>
-    //         </>
-    //     )
+
+                <div 
+                    className={`room-content__input-button color-${theme_color}-hover`}
+
+                    onClick={() => openCreateForm()}
+                >
+
+                    <div className="input-button__avatar-block">
+                        <div>
+                            <img className="input-button__avatar-img" src={avatar} alt="avatar" />
+                        </div>
+                    </div>
+                    
+                    <div className={`input-button__text`}>
+                        Обратитесь к курсу
+                    </div>
+                </div>
+
+
+                <div className="room-content__input-repeat">
+                    <figure className="input-repeat__icon">
+                        <RepeatIcon />
+                    </figure>
+                </div>
+
+
+            </div>
+            </>
+        )
     
+
+    /* 
+        CREATE FORM ||
+                    \/
+    */
+
 
     return (
         <div className="room-details__create-task">
+
+
+
             <form className="create-task__form">
+
                 <div className="create-task__form-course">
+
                     <p className="create-task__form-course__text">Для кого</p>
                     <div className="create-task__form-course__selects">
+
                         <Select 
+                            
                             options={options} 
                             setOptions={setOptions}
                             defaultOption={options[0]} 
@@ -96,99 +124,60 @@ const RoomCreateTask: React.FC = () => {
                             options={usersOptions}
                             defaultOption={usersOptions[0]} 
                         />
+
                     </div>
+
                 </div>
+
                 <div className="create-task__form-text">
-                    
-                    <div className="create-task__textarea-block move-textarea__block">
-                        <ContentEditable 
-                            html={textareaRef.current as string}
-                            tagName={'div'}
-                            disabled={false}
-                            className="create-task__textarea move-textarea" 
-                            onFocus={activeTextarea}
-                            onBlur={disactiveTextarea}
-                            onChange={(e) => changeTextValue(e)}
-                        >
-                        </ContentEditable>
-                        <label className={isTextareaActive 
-                            ? `color-${theme_color} move-textarea__label move-textarea__label-focused` 
-                            : textareaRef.current
-                            ? `move-textarea__label move-textarea__label-focused`
-                            : "move-textarea__label"
-                            }><span>Обратитесь к курсу</span></label>
-                        
-                    </div>
-                    
 
+                    <Textarea 
 
-                    <div className="create-task__textarea-underline"></div>
-                    <CSSTransition 
-                        in={isTextareaActive} 
-                        timeout={6000} 
-                        classNames="create-task__textarea-underline__focused"
-                        mountOnEnter
-                        unmountOnExit
-                    >
-                        <div className={`create-task__textarea-underline__focused bg-${theme_color}`}></div>
-                    </CSSTransition>
-
-                    <div className="create-task__modify-textarea">
-                        
-                            <ModifyButton 
-                                cmd="bold"
-                                isFormattingRemoved={isFormattingRemoved}
-                                setIsFormattingRemoved={setIsFormattingRemoved}
-                            >
-                                <BoldIcon />
-                            </ModifyButton>
-
-                            <ModifyButton 
-                                cmd={'italic'}
-                                isFormattingRemoved={isFormattingRemoved}
-                                setIsFormattingRemoved={setIsFormattingRemoved}
-                            >
-                                <ItalicIcon />
-                            </ModifyButton>
-
-                            <ModifyButton 
-                                cmd={'underline'}
-                                isFormattingRemoved={isFormattingRemoved}
-                                setIsFormattingRemoved={setIsFormattingRemoved}
-                            >
-                                <UnderlineIcon />
-                            </ModifyButton>
-
-                            <ModifyButton 
-                                cmd={'insertUnorderedList'}
-                                isFormattingRemoved={isFormattingRemoved}
-                                setIsFormattingRemoved={setIsFormattingRemoved}
-                            >
-                                <UnorderedListIcon />    
-                            </ModifyButton>
-
-                            <ModifyButton 
-                                cmd={'removeFormat'}
-                                isFormattingRemoved={isFormattingRemoved}
-                                setIsFormattingRemoved={setIsFormattingRemoved}
-                            >
-                                <RemoveFormatIcon />    
-                            </ModifyButton>
-
-                    </div>
+                        placeholder="Обратитесь к курсу"
+                        theme_color={theme_color} 
+                    />
 
                 </div>
+
             </form>
-            <div className="create-task__submit-block">
-                <div className="create-task__links">
-                    <div className="create-task__links-inner">
 
+
+
+
+            <div className="create-task__submit-block">
+
+                <div className="create-task__links">
+
+                    <div className="create-task__links-inner">
+                        <ImportIcons className={`fill-${theme_color} bg-${theme_color}-hover`} />
                     </div>
+
                 </div>
+
                 <div className="create-task__submit">
 
+                    <div className="create-task__submit-cancel">
+
+                        <span 
+                            className="create-task__submit-cancel__text"
+                            onClick={closeCreateForm}
+                        >Отмена</span>
+                    
+                    </div>
+
+                    <ButtonSelect 
+                        withDeleting={false}
+                        buttonText="Опубликовать" 
+                        theme_color={theme_color} 
+                    />
                 </div>
+
             </div>
+
+
+
+
+
         </div>
     )
 }
